@@ -1,0 +1,32 @@
+[
+{
+  "directory": "D:/github/songxia/build",
+  "command": "D:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/PLC2PCTEST.dir/includes_C.rsp  -std=c17   -Wmismatched-dealloc -Wfree-nonheap-object -g -Wall -std=gnu11 -o CMakeFiles\\PLC2PCTEST.dir\\test.c.obj -c D:\\github\\songxia\\gtk\\test.c",
+  "file": "D:/github/songxia/gtk/test.c"
+},
+{
+  "directory": "D:/github/songxia/build",
+  "command": "D:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/PLC2PCTEST.dir/includes_C.rsp  -std=c17   -Wmismatched-dealloc -Wfree-nonheap-object -g -Wall -std=gnu11 -o CMakeFiles\\PLC2PCTEST.dir\\plc\\plc.c.obj -c D:\\github\\songxia\\gtk\\plc\\plc.c",
+  "file": "D:/github/songxia/gtk/plc/plc.c"
+},
+{
+  "directory": "D:/github/songxia/build",
+  "command": "D:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/PLC2PCTEST.dir/includes_C.rsp  -std=c17   -Wmismatched-dealloc -Wfree-nonheap-object -g -Wall -std=gnu11 -o CMakeFiles\\PLC2PCTEST.dir\\log\\mylog.c.obj -c D:\\github\\songxia\\gtk\\log\\mylog.c",
+  "file": "D:/github/songxia/gtk/log/mylog.c"
+},
+{
+  "directory": "D:/github/songxia/build",
+  "command": "D:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/PLC2PCTEST.dir/includes_C.rsp  -std=c17   -Wmismatched-dealloc -Wfree-nonheap-object -g -Wall -std=gnu11 -o CMakeFiles\\PLC2PCTEST.dir\\mymalloc\\mymalloc.c.obj -c D:\\github\\songxia\\gtk\\mymalloc\\mymalloc.c",
+  "file": "D:/github/songxia/gtk/mymalloc/mymalloc.c"
+},
+{
+  "directory": "D:/github/songxia/build",
+  "command": "D:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/PLC2PCTEST.dir/includes_C.rsp  -std=c17   -Wmismatched-dealloc -Wfree-nonheap-object -g -Wall -std=gnu11 -o CMakeFiles\\PLC2PCTEST.dir\\dictionary\\dictionary.c.obj -c D:\\github\\songxia\\gtk\\dictionary\\dictionary.c",
+  "file": "D:/github/songxia/gtk/dictionary/dictionary.c"
+},
+{
+  "directory": "D:/github/songxia/build",
+  "command": "D:\\msys64\\mingw64\\bin\\gcc.exe  @CMakeFiles/PLC2PCTEST.dir/includes_C.rsp  -std=c17   -Wmismatched-dealloc -Wfree-nonheap-object -g -Wall -std=gnu11 -o CMakeFiles\\PLC2PCTEST.dir\\dictionary\\iniparser.c.obj -c D:\\github\\songxia\\gtk\\dictionary\\iniparser.c",
+  "file": "D:/github/songxia/gtk/dictionary/iniparser.c"
+}
+]

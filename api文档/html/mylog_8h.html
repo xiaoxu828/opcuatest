@@ -1,0 +1,581 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/github/gtk4.0_uwb/gtk/log/mylog.h 文件参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_aa394cd1d9abb8ffe941d9aaafca8d03.html">github</a></li><li class="navelem"><a class="el" href="dir_fd32216270b3951a38ee56489445cdd4.html">gtk4.0_uwb</a></li><li class="navelem"><a class="el" href="dir_68230846a0c21bbfab9811caeccbfa98.html">gtk</a></li><li class="navelem"><a class="el" href="dir_e805a2ae120f9f40ecd023973ea01d06.html">log</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#nested-classes">类</a> &#124;
+<a href="#typedef-members">类型定义</a> &#124;
+<a href="#enum-members">枚举</a> &#124;
+<a href="#func-members">函数</a>  </div>
+  <div class="headertitle"><div class="title">mylog.h 文件参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>最终定义的所有外部接口，只有my_log_init使用，当外部接口调用日志时调用g_log,就会自动调用mylog.c定义的回调函数  
+<a href="#details">更多...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;gtk/gtk.h&gt;</code><br />
+</div><div class="textblock"><div class="dynheader">
+mylog.h 的引用(Include)关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="mylog_8h__incl.png" border="0" usemap="#a_d_1_2github_2gtk4_80__uwb_2gtk_2log_2mylog_8h" alt=""/></div>
+</div>
+</div><div class="textblock"><div class="dynheader">
+此图展示该文件直接或间接的被哪些文件引用了:</div>
+<div class="dyncontent">
+<div class="center"><img src="mylog_8h__dep__incl.png" border="0" usemap="#a_d_1_2github_2gtk4_80__uwb_2gtk_2log_2mylog_8hdep" alt=""/></div>
+</div>
+</div>
+<p><a href="mylog_8h_source.html">浏览源代码.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+类</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_y___l_o_g___h_e_a_d.html">MY_LOG_HEAD</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">后续通过线程以及链表的方式添加日志 线程定时把链表的数据更新到日志文件里面  <a href="struct_m_y___l_o_g___h_e_a_d.html#details">更多...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structd_simpy_log_data.html">dSimpyLogData</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+类型定义</h2></td></tr>
+<tr class="memitem:a26f81b5e43868cf3281363cb36b9aa6b"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_m_y___l_o_g___h_e_a_d.html">MY_LOG_HEAD</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#a26f81b5e43868cf3281363cb36b9aa6b">My_log_head</a></td></tr>
+<tr class="memdesc:a26f81b5e43868cf3281363cb36b9aa6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">后续通过线程以及链表的方式添加日志 线程定时把链表的数据更新到日志文件里面  <br /></td></tr>
+<tr class="separator:a26f81b5e43868cf3281363cb36b9aa6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec66967a0d3d984532a41dde092bc31b"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="struct_m_y___l_o_g___h_e_a_d.html">MY_LOG_HEAD</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#aec66967a0d3d984532a41dde092bc31b">my_log_head</a></td></tr>
+<tr class="separator:aec66967a0d3d984532a41dde092bc31b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adda9251a828691b4e91ad7422191a6d5"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structd_simpy_log_data.html">dSimpyLogData</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#adda9251a828691b4e91ad7422191a6d5">dSimpylogdata</a></td></tr>
+<tr class="separator:adda9251a828691b4e91ad7422191a6d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+枚举</h2></td></tr>
+<tr class="memitem:a5429f69888a75e40452723131e4af24e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> { <br />
+&#160;&#160;<a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea1c1c39536eb4a784ab8ebea4e32d219c">STD_IN</a> =0
+, <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a> =1
+, <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea931e706d5845a8b6247fa5027cda9584">STD_TCP</a> =2
+, <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24eac4ab007e49ec1c5c6ebece6282f5bf9d">STD_UDP</a> =3
+, <br />
+&#160;&#160;<a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea633f5cf980fab342cdd15580103487bf">STD_ERR</a> =4
+<br />
+ }</td></tr>
+<tr class="separator:a5429f69888a75e40452723131e4af24e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+函数</h2></td></tr>
+<tr class="memitem:af2fb4e3e2d48d890b6f1ef4bcc63b614"><td class="memItemLeft" align="right" valign="top"><a class="el" href="mylog_8h.html#aec66967a0d3d984532a41dde092bc31b">my_log_head</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#af2fb4e3e2d48d890b6f1ef4bcc63b614">my_log_class_creat</a> (gchar *stream, enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> flag)</td></tr>
+<tr class="memdesc:af2fb4e3e2d48d890b6f1ef4bcc63b614"><td class="mdescLeft">&#160;</td><td class="mdescRight">关闭类  <br /></td></tr>
+<tr class="separator:af2fb4e3e2d48d890b6f1ef4bcc63b614"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3aeb81c1486f3e4961a58e0818f02f1a"><td class="memItemLeft" align="right" valign="top">GIOChannel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#a3aeb81c1486f3e4961a58e0818f02f1a">my_log_creat</a> (gchar *stream, enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> flag)</td></tr>
+<tr class="memdesc:a3aeb81c1486f3e4961a58e0818f02f1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">创建日志文件  <br /></td></tr>
+<tr class="separator:a3aeb81c1486f3e4961a58e0818f02f1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56f4c7e594901a271fda19b30564966d"><td class="memItemLeft" align="right" valign="top">gboolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#a56f4c7e594901a271fda19b30564966d">my_log_write</a> (GIOChannel *stream, enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> flag, gchar *data)</td></tr>
+<tr class="memdesc:a56f4c7e594901a271fda19b30564966d"><td class="mdescLeft">&#160;</td><td class="mdescRight">写日志  <br /></td></tr>
+<tr class="separator:a56f4c7e594901a271fda19b30564966d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada80f4d7baa1c180b65041d93aeb27d8"><td class="memItemLeft" align="right" valign="top">gboolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#ada80f4d7baa1c180b65041d93aeb27d8">my_log_close</a> (GIOChannel **stream)</td></tr>
+<tr class="separator:ada80f4d7baa1c180b65041d93aeb27d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3618d55c2bf81b02b6d5044fd87cc009"><td class="memItemLeft" align="right" valign="top">gboolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#a3618d55c2bf81b02b6d5044fd87cc009">my_log_class_close</a> (<a class="el" href="mylog_8h.html#aec66967a0d3d984532a41dde092bc31b">my_log_head</a> *class_log)</td></tr>
+<tr class="memdesc:a3618d55c2bf81b02b6d5044fd87cc009"><td class="mdescLeft">&#160;</td><td class="mdescRight">释放日志类  <br /></td></tr>
+<tr class="separator:a3618d55c2bf81b02b6d5044fd87cc009"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc21ff87369e6e096bbfc3cad86fa6be"><td class="memItemLeft" align="right" valign="top">gboolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#acc21ff87369e6e096bbfc3cad86fa6be">my_log_simplyf</a> (<a class="el" href="structd_simpy_log_data.html">dSimpyLogData</a> *d, gboolean *flag)</td></tr>
+<tr class="memdesc:acc21ff87369e6e096bbfc3cad86fa6be"><td class="mdescLeft">&#160;</td><td class="mdescRight">先把数据写入链表，等待cpu空闲  <br /></td></tr>
+<tr class="separator:acc21ff87369e6e096bbfc3cad86fa6be"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add722e0a1c0ee3549689c575b4572e24"><td class="memItemLeft" align="right" valign="top">gboolean&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#add722e0a1c0ee3549689c575b4572e24">my_logfunc</a> (char *domian, GLogLevelFlags flags, gchar *messg, gpointer d)</td></tr>
+<tr class="memdesc:add722e0a1c0ee3549689c575b4572e24"><td class="mdescLeft">&#160;</td><td class="mdescRight">日志的回调函数，实际写入的日志除了err等级会立刻写入以外，其他的日志都会先保存到队列里面。  <br /></td></tr>
+<tr class="separator:add722e0a1c0ee3549689c575b4572e24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4000d3dad3c1647c8fa8d7760653bbfe"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="mylog_8h.html#a4000d3dad3c1647c8fa8d7760653bbfe">my_log_init</a> (char *pid)</td></tr>
+<tr class="memdesc:a4000d3dad3c1647c8fa8d7760653bbfe"><td class="mdescLeft">&#160;</td><td class="mdescRight">在使用日志以前调用，  <br /></td></tr>
+<tr class="separator:a4000d3dad3c1647c8fa8d7760653bbfe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>最终定义的所有外部接口，只有my_log_init使用，当外部接口调用日志时调用g_log,就会自动调用mylog.c定义的回调函数 </p>
+<dl class="section author"><dt>作者</dt><dd>xuzhang (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span class="obfuscator">.nosp@m.</span>omai<span class="obfuscator">.nosp@m.</span>n.com</a>) </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>v1.0 </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2023-01-08</dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2023 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="mylog_8h_source.html">mylog.h</a> 中定义.</p>
+</div><h2 class="groupheader">类型定义说明</h2>
+<a id="adda9251a828691b4e91ad7422191a6d5" name="adda9251a828691b4e91ad7422191a6d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adda9251a828691b4e91ad7422191a6d5">&#9670;&#160;</a></span>dSimpylogdata</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef  struct <a class="el" href="structd_simpy_log_data.html">dSimpyLogData</a>* <a class="el" href="mylog_8h.html#adda9251a828691b4e91ad7422191a6d5">dSimpylogdata</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a26f81b5e43868cf3281363cb36b9aa6b" name="a26f81b5e43868cf3281363cb36b9aa6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f81b5e43868cf3281363cb36b9aa6b">&#9670;&#160;</a></span>My_log_head</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_m_y___l_o_g___h_e_a_d.html">MY_LOG_HEAD</a> <a class="el" href="mylog_8h.html#a26f81b5e43868cf3281363cb36b9aa6b">My_log_head</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>后续通过线程以及链表的方式添加日志 线程定时把链表的数据更新到日志文件里面 </p>
+<dl class="section version"><dt>版本</dt><dd>1.0 </dd></dl>
+<dl class="section author"><dt>作者</dt><dd>xuzhang (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span class="obfuscator">.nosp@m.</span>omai<span class="obfuscator">.nosp@m.</span>n.com</a>) </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2022-08-11 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2022 </dd></dl>
+
+</div>
+</div>
+<a id="aec66967a0d3d984532a41dde092bc31b" name="aec66967a0d3d984532a41dde092bc31b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec66967a0d3d984532a41dde092bc31b">&#9670;&#160;</a></span>my_log_head</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="struct_m_y___l_o_g___h_e_a_d.html">MY_LOG_HEAD</a>* <a class="el" href="mylog_8h.html#aec66967a0d3d984532a41dde092bc31b">my_log_head</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">枚举类型说明</h2>
+<a id="a5429f69888a75e40452723131e4af24e" name="a5429f69888a75e40452723131e4af24e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5429f69888a75e40452723131e4af24e">&#9670;&#160;</a></span>LOG_FLAG</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">枚举值</th></tr><tr><td class="fieldname"><a id="a5429f69888a75e40452723131e4af24ea1c1c39536eb4a784ab8ebea4e32d219c" name="a5429f69888a75e40452723131e4af24ea1c1c39536eb4a784ab8ebea4e32d219c"></a>STD_IN&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6" name="a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6"></a>STD_FILE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5429f69888a75e40452723131e4af24ea931e706d5845a8b6247fa5027cda9584" name="a5429f69888a75e40452723131e4af24ea931e706d5845a8b6247fa5027cda9584"></a>STD_TCP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5429f69888a75e40452723131e4af24eac4ab007e49ec1c5c6ebece6282f5bf9d" name="a5429f69888a75e40452723131e4af24eac4ab007e49ec1c5c6ebece6282f5bf9d"></a>STD_UDP&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a5429f69888a75e40452723131e4af24ea633f5cf980fab342cdd15580103487bf" name="a5429f69888a75e40452723131e4af24ea633f5cf980fab342cdd15580103487bf"></a>STD_ERR&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">在文件 <a class="el" href="mylog_8h_source.html">mylog.h</a> 第 <a class="el" href="mylog_8h_source.html#l00017">17</a> 行定义.</p>
+
+</div>
+</div>
+<h2 class="groupheader">函数说明</h2>
+<a id="a3618d55c2bf81b02b6d5044fd87cc009" name="a3618d55c2bf81b02b6d5044fd87cc009"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3618d55c2bf81b02b6d5044fd87cc009">&#9670;&#160;</a></span>my_log_class_close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gboolean my_log_class_close </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="mylog_8h.html#aec66967a0d3d984532a41dde092bc31b">my_log_head</a> *&#160;</td>
+          <td class="paramname"><em>class_log</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>释放日志类 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">class_log</td><td>类的2级地址 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>gboolean </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>1.0 </dd></dl>
+<dl class="section author"><dt>作者</dt><dd>xuzhang (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span class="obfuscator">.nosp@m.</span>omai<span class="obfuscator">.nosp@m.</span>n.com</a>) </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2022-08-30 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2022 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="mylog_8c_source.html">mylog.c</a> 第 <a class="el" href="mylog_8c_source.html#l00268">268</a> 行定义.</p>
+
+</div>
+</div>
+<a id="af2fb4e3e2d48d890b6f1ef4bcc63b614" name="af2fb4e3e2d48d890b6f1ef4bcc63b614"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2fb4e3e2d48d890b6f1ef4bcc63b614">&#9670;&#160;</a></span>my_log_class_creat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="mylog_8h.html#aec66967a0d3d984532a41dde092bc31b">my_log_head</a> my_log_class_creat </td>
+          <td>(</td>
+          <td class="paramtype">gchar *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a>&#160;</td>
+          <td class="paramname"><em>flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>关闭类 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>文件名称 </td></tr>
+    <tr><td class="paramname">flag</td><td>标志 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>my_log_head 返回操作类； </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>1.0 </dd></dl>
+<dl class="section author"><dt>作者</dt><dd>xuzhang (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span class="obfuscator">.nosp@m.</span>omai<span class="obfuscator">.nosp@m.</span>n.com</a>) </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2022-08-30 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2022 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="mylog_8c_source.html">mylog.c</a> 第 <a class="el" href="mylog_8c_source.html#l00239">239</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ada80f4d7baa1c180b65041d93aeb27d8" name="ada80f4d7baa1c180b65041d93aeb27d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada80f4d7baa1c180b65041d93aeb27d8">&#9670;&#160;</a></span>my_log_close()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gboolean my_log_close </td>
+          <td>(</td>
+          <td class="paramtype">GIOChannel **&#160;</td>
+          <td class="paramname"><em>stream</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="mylog_8c_source.html">mylog.c</a> 第 <a class="el" href="mylog_8c_source.html#l00195">195</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="mylog_8h_ada80f4d7baa1c180b65041d93aeb27d8_icgraph.png" border="0" usemap="#amylog_8h_ada80f4d7baa1c180b65041d93aeb27d8_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a3aeb81c1486f3e4961a58e0818f02f1a" name="a3aeb81c1486f3e4961a58e0818f02f1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3aeb81c1486f3e4961a58e0818f02f1a">&#9670;&#160;</a></span>my_log_creat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GIOChannel * my_log_creat </td>
+          <td>(</td>
+          <td class="paramtype">gchar *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a>&#160;</td>
+          <td class="paramname"><em>flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>创建日志文件 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>日志名称 </td></tr>
+    <tr><td class="paramname">flag</td><td>日志输出标志 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>GIOChannel* 返回通道 </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>1.0 </dd></dl>
+<dl class="section author"><dt>作者</dt><dd>xuzhang (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span class="obfuscator">.nosp@m.</span>omai<span class="obfuscator">.nosp@m.</span>n.com</a>) </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2022-08-12 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2022 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="mylog_8c_source.html">mylog.c</a> 第 <a class="el" href="mylog_8c_source.html#l00040">40</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="mylog_8h_a3aeb81c1486f3e4961a58e0818f02f1a_icgraph.png" border="0" usemap="#amylog_8h_a3aeb81c1486f3e4961a58e0818f02f1a_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a4000d3dad3c1647c8fa8d7760653bbfe" name="a4000d3dad3c1647c8fa8d7760653bbfe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4000d3dad3c1647c8fa8d7760653bbfe">&#9670;&#160;</a></span>my_log_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void my_log_init </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>pid</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>在使用日志以前调用， </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pid</td><td>程序的PID字符串类型，可以给固定值，直接用程序的pid有利于调试 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section version"><dt>版本</dt><dd>v1.0 </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2023-01-08 </dd></dl>
+<dl class="section author"><dt>作者</dt><dd>xuzhang (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span class="obfuscator">.nosp@m.</span>omai<span class="obfuscator">.nosp@m.</span>n.com</a>) </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2023 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="mylog_8c_source.html">mylog.c</a> 第 <a class="el" href="mylog_8c_source.html#l00390">390</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="mylog_8h_a4000d3dad3c1647c8fa8d7760653bbfe_cgraph.png" border="0" usemap="#amylog_8h_a4000d3dad3c1647c8fa8d7760653bbfe_cgraph" alt=""/></div>
+</div>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="mylog_8h_a4000d3dad3c1647c8fa8d7760653bbfe_icgraph.png" border="0" usemap="#amylog_8h_a4000d3dad3c1647c8fa8d7760653bbfe_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="acc21ff87369e6e096bbfc3cad86fa6be" name="acc21ff87369e6e096bbfc3cad86fa6be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc21ff87369e6e096bbfc3cad86fa6be">&#9670;&#160;</a></span>my_log_simplyf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gboolean my_log_simplyf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structd_simpy_log_data.html">dSimpyLogData</a> *&#160;</td>
+          <td class="paramname"><em>d</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gboolean *&#160;</td>
+          <td class="paramname"><em>flag</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>先把数据写入链表，等待cpu空闲 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">d</td><td>保存有日志的所有信息 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>gboolean </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>v1.0 </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2022-11-09 </dd></dl>
+<dl class="section author"><dt>作者</dt><dd>xuzhang (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span class="obfuscator">.nosp@m.</span>omai<span class="obfuscator">.nosp@m.</span>n.com</a>) </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2022 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="mylog_8c_source.html">mylog.c</a> 第 <a class="el" href="mylog_8c_source.html#l00110">110</a> 行定义.</p>
+<div class="dynheader">
+函数调用图:</div>
+<div class="dyncontent">
+<div class="center"><img src="mylog_8h_acc21ff87369e6e096bbfc3cad86fa6be_cgraph.png" border="0" usemap="#amylog_8h_acc21ff87369e6e096bbfc3cad86fa6be_cgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="a56f4c7e594901a271fda19b30564966d" name="a56f4c7e594901a271fda19b30564966d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56f4c7e594901a271fda19b30564966d">&#9670;&#160;</a></span>my_log_write()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gboolean my_log_write </td>
+          <td>(</td>
+          <td class="paramtype">GIOChannel *&#160;</td>
+          <td class="paramname"><em>stream</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a>&#160;</td>
+          <td class="paramname"><em>flag</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gchar *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>写日志 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">stream</td><td>IO流 </td></tr>
+    <tr><td class="paramname">flag</td><td>日志输出标志 </td></tr>
+    <tr><td class="paramname">data</td><td>日志记录 </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>gboolean true写入成功，false写入失败 </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>1.0 </dd></dl>
+<dl class="section author"><dt>作者</dt><dd>xuzhang (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span class="obfuscator">.nosp@m.</span>omai<span class="obfuscator">.nosp@m.</span>n.com</a>) </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2022-08-12 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2022 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="mylog_8c_source.html">mylog.c</a> 第 <a class="el" href="mylog_8c_source.html#l00132">132</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="mylog_8h_a56f4c7e594901a271fda19b30564966d_icgraph.png" border="0" usemap="#amylog_8h_a56f4c7e594901a271fda19b30564966d_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+<a id="add722e0a1c0ee3549689c575b4572e24" name="add722e0a1c0ee3549689c575b4572e24"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add722e0a1c0ee3549689c575b4572e24">&#9670;&#160;</a></span>my_logfunc()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gboolean my_logfunc </td>
+          <td>(</td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>domian</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">GLogLevelFlags&#160;</td>
+          <td class="paramname"><em>flags</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gchar *&#160;</td>
+          <td class="paramname"><em>messg</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">gpointer&#160;</td>
+          <td class="paramname"><em>d</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>日志的回调函数，实际写入的日志除了err等级会立刻写入以外，其他的日志都会先保存到队列里面。 </p>
+<dl class="params"><dt>参数</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">domian</td><td></td></tr>
+    <tr><td class="paramname">flags</td><td>日志等级，err将直接打印日志退出程序。 </td></tr>
+    <tr><td class="paramname">messg</td><td>日志传递的字符串 </td></tr>
+    <tr><td class="paramname">d</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>返回</dt><dd>gboolean </dd></dl>
+<dl class="section version"><dt>版本</dt><dd>v1.0 </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2023-01-08 </dd></dl>
+<dl class="section author"><dt>作者</dt><dd>xuzhang (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span class="obfuscator">.nosp@m.</span>omai<span class="obfuscator">.nosp@m.</span>n.com</a>) </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2023 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="mylog_8c_source.html">mylog.c</a> 第 <a class="el" href="mylog_8c_source.html#l00306">306</a> 行定义.</p>
+<div class="dynheader">
+这是这个函数的调用关系图:</div>
+<div class="dyncontent">
+<div class="center"><img src="mylog_8h_add722e0a1c0ee3549689c575b4572e24_icgraph.png" border="0" usemap="#amylog_8h_add722e0a1c0ee3549689c575b4572e24_icgraph" alt=""/></div>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

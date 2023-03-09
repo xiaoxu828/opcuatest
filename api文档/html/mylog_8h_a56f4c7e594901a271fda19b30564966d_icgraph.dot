@@ -1,0 +1,15 @@
+digraph "my_log_write"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [label="my_log_write",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="写日志"];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="foreachfunc",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$mylog_8c.html#aa1d3a78ef72b97643e902ff3b13299b1",tooltip=" "];
+  Node2 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="my_log_threadf",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$mylog_8c.html#a85ead70fedea847c961f259e63e5af13",tooltip=" "];
+  Node3 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="my_log_simplyf",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$mylog_8c.html#acc21ff87369e6e096bbfc3cad86fa6be",tooltip="先把数据写入链表，等待cpu空闲"];
+}

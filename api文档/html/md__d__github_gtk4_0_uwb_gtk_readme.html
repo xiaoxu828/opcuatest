@@ -1,0 +1,92 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: readme</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li class="current"><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div><div class="header">
+  <div class="headertitle"><div class="title">readme </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><p>这是一个学习gtk,以及依托GTK制作小工具的code</p>
+<h2><a class="anchor" id="autotoc_md0"></a>
+1.cJSON是处理json格式开源库</h2>
+<p>/*</p>
+<p>Copyright (c) 2009 Dave Gamble</p>
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy</p>
+<p>of this software and associated documentation files (the "Software"), to deal</p>
+<p>in the Software without restriction, including without limitation the rights</p>
+<p>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</p>
+<p>copies of the Software, and to permit persons to whom the Software is</p>
+<p>furnished to do so, subject to the following conditions:</p>
+<p>The above copyright notice and this permission notice shall be included in</p>
+<p>all copies or substantial portions of the Software.</p>
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</p>
+<p>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</p>
+<p>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</p>
+<p>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</p>
+<p>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</p>
+<p>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN</p>
+<p>THE SOFTWARE.</p>
+<p>*/</p>
+<h2><a class="anchor" id="autotoc_md1"></a>
+dictionary/iniparser是一个读取配置文件的功能</h2>
+<p>/*----------------------------------------------------------------------&mdash;*/</p>
+<p>/**</p>
+<dl class="section author"><dt>作者</dt><dd>N. Devillard</dd></dl>
+<p>*/</p>
+<h2><a class="anchor" id="autotoc_md2"></a>
+mylog是一个自己实现的日志库</h2>
+<p>功能：打印日志，自动插入日期，时间，基于GIOChannel通道实现</p>
+<p>1.my_log_creat；</p>
+<p>2.gbooleanmy_log_write；</p>
+<p>3.my_log_close</p>
+<h2><a class="anchor" id="autotoc_md3"></a>
+mymalloc是一个基于glib实现的内存泄漏检测工具</h2>
+<p>1.重定义malloc函数</p>
+<div class="fragment"><div class="line">#define malloc(siz) MY_malloc(__FILE__,__FUNCTION__,&quot;teset&quot;,__LINE__ , siz)</div>
+<div class="line">#define free(d) MY_free( d)</div>
+</div><!-- fragment --><p>2.使用malloc函数申请内存</p>
+<p>3.使用free函数释放内存</p>
+<p>4.打印所有没被释放的内存 <code>free_print(prin);</code></p>
+<p>5.关闭组件功能 <code><a class="el" href="mymalloc_8c.html#a5b2871b82f024e2722ff0d0961291273">MY_malloc_close()</a>;</code> </p>
+</div></div><!-- contents -->
+</div><!-- PageDoc -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

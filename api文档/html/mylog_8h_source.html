@@ -1,0 +1,135 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/github/gtk4.0_uwb/gtk/log/mylog.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_aa394cd1d9abb8ffe941d9aaafca8d03.html">github</a></li><li class="navelem"><a class="el" href="dir_fd32216270b3951a38ee56489445cdd4.html">gtk4.0_uwb</a></li><li class="navelem"><a class="el" href="dir_68230846a0c21bbfab9811caeccbfa98.html">gtk</a></li><li class="navelem"><a class="el" href="dir_e805a2ae120f9f40ecd023973ea01d06.html">log</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">mylog.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="mylog_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span> </div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#ifndef mylog_H</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#define mylog_H</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include&lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &lt;gtk/gtk.h&gt;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">   17</a></span><span class="keyword">enum</span> <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a>{</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea1c1c39536eb4a784ab8ebea4e32d219c">   18</a></span>    <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea1c1c39536eb4a784ab8ebea4e32d219c">STD_IN</a>=0,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">   19</a></span>    <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a>=1,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea931e706d5845a8b6247fa5027cda9584">   20</a></span>    <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea931e706d5845a8b6247fa5027cda9584">STD_TCP</a>=2,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="mylog_8h.html#a5429f69888a75e40452723131e4af24eac4ab007e49ec1c5c6ebece6282f5bf9d">   21</a></span>    <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24eac4ab007e49ec1c5c6ebece6282f5bf9d">STD_UDP</a>=3,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea633f5cf980fab342cdd15580103487bf">   22</a></span>    <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea633f5cf980fab342cdd15580103487bf">STD_ERR</a>=4,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">// #define malloc(siz) MY_malloc(__FILE__, __FUNCTION__, &quot;hello&quot;, __LINE__, siz)</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">// #define free(d) MY_free(d)</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment"></span><span class="comment">//TODO 将日志往类的方向发展；</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">//TODO 添加缓存机制，先把数据写入缓存，然后等cpu空闲时写入日志文件</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno"><a class="line" href="struct_m_y___l_o_g___h_e_a_d.html">   38</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="struct_m_y___l_o_g___h_e_a_d.html">MY_LOG_HEAD</a>{</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">   39</a></span>GIOChannel* <a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">   40</a></span>  <span class="keyword">enum</span>  <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> <a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">flag</a>;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="struct_m_y___l_o_g___h_e_a_d.html#aa3a9954e9a99586a1b43e45f306abe48">   41</a></span>  GList* <a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#aa3a9954e9a99586a1b43e45f306abe48">list</a>;<span class="comment">//线程buf，程序通过这个线程去写日志，线程去通过这个更新日志；</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="struct_m_y___l_o_g___h_e_a_d.html#a05674c1ccce42ccbb9ad3a985f374b59">   42</a></span>GThread* <a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#a05674c1ccce42ccbb9ad3a985f374b59">th</a>;<span class="comment">//线程句柄</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="struct_m_y___l_o_g___h_e_a_d.html#a75ac3516bc910fbcc79686cb214f8840">   43</a></span>GMutex* <a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#a75ac3516bc910fbcc79686cb214f8840">mutexdrop</a>;<span class="comment">//</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="struct_m_y___l_o_g___h_e_a_d.html#a71cc07f4f75c8bcee688f2e5d272fbad">   44</a></span>GIOChannel*(*my_log_creat)(gchar* <a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a>,<span class="keyword">enum</span>  <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> <a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">flag</a>);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="struct_m_y___l_o_g___h_e_a_d.html#acd820e2bd22a14b0d92033dee2b4221b">   45</a></span>gboolean (*<a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#acd820e2bd22a14b0d92033dee2b4221b">my_log_write</a>)(GIOChannel* <a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a>,<span class="keyword">enum</span>  <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> <a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">flag</a>,gchar* data);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno"><a class="line" href="mylog_8h.html#aec66967a0d3d984532a41dde092bc31b">   47</a></span>}<a class="code hl_typedef" href="mylog_8h.html#a26f81b5e43868cf3281363cb36b9aa6b">My_log_head</a>,*<a class="code hl_typedef" href="mylog_8h.html#aec66967a0d3d984532a41dde092bc31b">my_log_head</a>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="structd_simpy_log_data.html">   48</a></span><span class="keyword">typedef</span> <span class="keyword">struct </span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>{</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="structd_simpy_log_data.html#aa78f4ab93ed00c1bb5085bae4d9ac204">   50</a></span>    gchar* <a class="code hl_variable" href="structd_simpy_log_data.html#aa78f4ab93ed00c1bb5085bae4d9ac204">data</a>;</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="structd_simpy_log_data.html#a695926ff55d0800265ae348f798f5ae8">   51</a></span>    gchar* <a class="code hl_variable" href="structd_simpy_log_data.html#a695926ff55d0800265ae348f798f5ae8">name</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>  <span class="comment">/* data */</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="mylog_8h.html#adda9251a828691b4e91ad7422191a6d5">   53</a></span>}<a class="code hl_struct" href="structd_simpy_log_data.html">dSimpyLogData</a>,*<a class="code hl_typedef" href="mylog_8h.html#adda9251a828691b4e91ad7422191a6d5">dSimpylogdata</a>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><a class="code hl_struct" href="struct_m_y___l_o_g___h_e_a_d.html">my_log_head</a> <a class="code hl_function" href="mylog_8h.html#af2fb4e3e2d48d890b6f1ef4bcc63b614">my_log_class_creat</a>(gchar* stream,<span class="keyword">enum</span>  <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> flag);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>GIOChannel* <a class="code hl_function" href="mylog_8h.html#a3aeb81c1486f3e4961a58e0818f02f1a">my_log_creat</a>(gchar* stream,<span class="keyword">enum</span>  <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> flag);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>gboolean <a class="code hl_function" href="mylog_8h.html#a56f4c7e594901a271fda19b30564966d">my_log_write</a>(GIOChannel* stream,<span class="keyword">enum</span>  <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> flag,gchar* data);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>gboolean <a class="code hl_function" href="mylog_8h.html#ada80f4d7baa1c180b65041d93aeb27d8">my_log_close</a>(GIOChannel** stream);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>gboolean <a class="code hl_function" href="mylog_8h.html#a3618d55c2bf81b02b6d5044fd87cc009">my_log_class_close</a>(<a class="code hl_struct" href="struct_m_y___l_o_g___h_e_a_d.html">my_log_head</a>* class_log);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>gboolean <a class="code hl_function" href="mylog_8h.html#acc21ff87369e6e096bbfc3cad86fa6be">my_log_simplyf</a>(<a class="code hl_struct" href="structd_simpy_log_data.html">dSimpyLogData</a> *d,gboolean *flag);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> gboolean <a class="code hl_function" href="mylog_8h.html#add722e0a1c0ee3549689c575b4572e24">my_logfunc</a>(<span class="keywordtype">char</span> *domian, GLogLevelFlags flags, gchar *messg, gpointer d);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="keywordtype">void</span> <a class="code hl_function" href="mylog_8h.html#a4000d3dad3c1647c8fa8d7760653bbfe">my_log_init</a>(<span class="keywordtype">char</span> * pid);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="amylog_8h_html_a26f81b5e43868cf3281363cb36b9aa6b"><div class="ttname"><a href="mylog_8h.html#a26f81b5e43868cf3281363cb36b9aa6b">My_log_head</a></div><div class="ttdeci">struct MY_LOG_HEAD My_log_head</div><div class="ttdoc">后续通过线程以及链表的方式添加日志 线程定时把链表的数据更新到日志文件里面</div></div>
+<div class="ttc" id="amylog_8h_html_a3618d55c2bf81b02b6d5044fd87cc009"><div class="ttname"><a href="mylog_8h.html#a3618d55c2bf81b02b6d5044fd87cc009">my_log_class_close</a></div><div class="ttdeci">gboolean my_log_class_close(my_log_head *class_log)</div><div class="ttdoc">释放日志类</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00268">mylog.c:268</a></div></div>
+<div class="ttc" id="amylog_8h_html_a3aeb81c1486f3e4961a58e0818f02f1a"><div class="ttname"><a href="mylog_8h.html#a3aeb81c1486f3e4961a58e0818f02f1a">my_log_creat</a></div><div class="ttdeci">GIOChannel * my_log_creat(gchar *stream, enum LOG_FLAG flag)</div><div class="ttdoc">创建日志文件</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00040">mylog.c:40</a></div></div>
+<div class="ttc" id="amylog_8h_html_a4000d3dad3c1647c8fa8d7760653bbfe"><div class="ttname"><a href="mylog_8h.html#a4000d3dad3c1647c8fa8d7760653bbfe">my_log_init</a></div><div class="ttdeci">void my_log_init(char *pid)</div><div class="ttdoc">在使用日志以前调用，</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00390">mylog.c:390</a></div></div>
+<div class="ttc" id="amylog_8h_html_a5429f69888a75e40452723131e4af24e"><div class="ttname"><a href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a></div><div class="ttdeci">LOG_FLAG</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00017">mylog.h:17</a></div></div>
+<div class="ttc" id="amylog_8h_html_a5429f69888a75e40452723131e4af24ea1c1c39536eb4a784ab8ebea4e32d219c"><div class="ttname"><a href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea1c1c39536eb4a784ab8ebea4e32d219c">STD_IN</a></div><div class="ttdeci">@ STD_IN</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00018">mylog.h:18</a></div></div>
+<div class="ttc" id="amylog_8h_html_a5429f69888a75e40452723131e4af24ea633f5cf980fab342cdd15580103487bf"><div class="ttname"><a href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea633f5cf980fab342cdd15580103487bf">STD_ERR</a></div><div class="ttdeci">@ STD_ERR</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00022">mylog.h:22</a></div></div>
+<div class="ttc" id="amylog_8h_html_a5429f69888a75e40452723131e4af24ea931e706d5845a8b6247fa5027cda9584"><div class="ttname"><a href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea931e706d5845a8b6247fa5027cda9584">STD_TCP</a></div><div class="ttdeci">@ STD_TCP</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00020">mylog.h:20</a></div></div>
+<div class="ttc" id="amylog_8h_html_a5429f69888a75e40452723131e4af24eac4ab007e49ec1c5c6ebece6282f5bf9d"><div class="ttname"><a href="mylog_8h.html#a5429f69888a75e40452723131e4af24eac4ab007e49ec1c5c6ebece6282f5bf9d">STD_UDP</a></div><div class="ttdeci">@ STD_UDP</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00021">mylog.h:21</a></div></div>
+<div class="ttc" id="amylog_8h_html_a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6"><div class="ttname"><a href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a></div><div class="ttdeci">@ STD_FILE</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00019">mylog.h:19</a></div></div>
+<div class="ttc" id="amylog_8h_html_a56f4c7e594901a271fda19b30564966d"><div class="ttname"><a href="mylog_8h.html#a56f4c7e594901a271fda19b30564966d">my_log_write</a></div><div class="ttdeci">gboolean my_log_write(GIOChannel *stream, enum LOG_FLAG flag, gchar *data)</div><div class="ttdoc">写日志</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00132">mylog.c:132</a></div></div>
+<div class="ttc" id="amylog_8h_html_acc21ff87369e6e096bbfc3cad86fa6be"><div class="ttname"><a href="mylog_8h.html#acc21ff87369e6e096bbfc3cad86fa6be">my_log_simplyf</a></div><div class="ttdeci">gboolean my_log_simplyf(dSimpyLogData *d, gboolean *flag)</div><div class="ttdoc">先把数据写入链表，等待cpu空闲</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00110">mylog.c:110</a></div></div>
+<div class="ttc" id="amylog_8h_html_ada80f4d7baa1c180b65041d93aeb27d8"><div class="ttname"><a href="mylog_8h.html#ada80f4d7baa1c180b65041d93aeb27d8">my_log_close</a></div><div class="ttdeci">gboolean my_log_close(GIOChannel **stream)</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00195">mylog.c:195</a></div></div>
+<div class="ttc" id="amylog_8h_html_add722e0a1c0ee3549689c575b4572e24"><div class="ttname"><a href="mylog_8h.html#add722e0a1c0ee3549689c575b4572e24">my_logfunc</a></div><div class="ttdeci">gboolean my_logfunc(char *domian, GLogLevelFlags flags, gchar *messg, gpointer d)</div><div class="ttdoc">日志的回调函数，实际写入的日志除了err等级会立刻写入以外，其他的日志都会先保存到队列里面。</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00306">mylog.c:306</a></div></div>
+<div class="ttc" id="amylog_8h_html_adda9251a828691b4e91ad7422191a6d5"><div class="ttname"><a href="mylog_8h.html#adda9251a828691b4e91ad7422191a6d5">dSimpylogdata</a></div><div class="ttdeci">struct dSimpyLogData * dSimpylogdata</div></div>
+<div class="ttc" id="amylog_8h_html_aec66967a0d3d984532a41dde092bc31b"><div class="ttname"><a href="mylog_8h.html#aec66967a0d3d984532a41dde092bc31b">my_log_head</a></div><div class="ttdeci">struct MY_LOG_HEAD * my_log_head</div></div>
+<div class="ttc" id="amylog_8h_html_af2fb4e3e2d48d890b6f1ef4bcc63b614"><div class="ttname"><a href="mylog_8h.html#af2fb4e3e2d48d890b6f1ef4bcc63b614">my_log_class_creat</a></div><div class="ttdeci">my_log_head my_log_class_creat(gchar *stream, enum LOG_FLAG flag)</div><div class="ttdoc">关闭类</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00239">mylog.c:239</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html">MY_LOG_HEAD</a></div><div class="ttdoc">后续通过线程以及链表的方式添加日志 线程定时把链表的数据更新到日志文件里面</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00038">mylog.h:38</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_a05674c1ccce42ccbb9ad3a985f374b59"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#a05674c1ccce42ccbb9ad3a985f374b59">MY_LOG_HEAD::th</a></div><div class="ttdeci">GThread * th</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00042">mylog.h:42</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_a6c27ca126972186399ea40b849935741"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">MY_LOG_HEAD::flag</a></div><div class="ttdeci">enum LOG_FLAG flag</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00040">mylog.h:40</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_a75ac3516bc910fbcc79686cb214f8840"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#a75ac3516bc910fbcc79686cb214f8840">MY_LOG_HEAD::mutexdrop</a></div><div class="ttdeci">GMutex * mutexdrop</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00043">mylog.h:43</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_aa3a9954e9a99586a1b43e45f306abe48"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#aa3a9954e9a99586a1b43e45f306abe48">MY_LOG_HEAD::list</a></div><div class="ttdeci">GList * list</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00041">mylog.h:41</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_acd820e2bd22a14b0d92033dee2b4221b"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#acd820e2bd22a14b0d92033dee2b4221b">MY_LOG_HEAD::my_log_write</a></div><div class="ttdeci">gboolean(* my_log_write)(GIOChannel *stream, enum LOG_FLAG flag, gchar *data)</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00045">mylog.h:45</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_ae9c7c9d2427dc5b71ee7fa62116f2a5a"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">MY_LOG_HEAD::stream</a></div><div class="ttdeci">GIOChannel * stream</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00039">mylog.h:39</a></div></div>
+<div class="ttc" id="astructd_simpy_log_data_html"><div class="ttname"><a href="structd_simpy_log_data.html">dSimpyLogData</a></div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00048">mylog.h:49</a></div></div>
+<div class="ttc" id="astructd_simpy_log_data_html_a695926ff55d0800265ae348f798f5ae8"><div class="ttname"><a href="structd_simpy_log_data.html#a695926ff55d0800265ae348f798f5ae8">dSimpyLogData::name</a></div><div class="ttdeci">gchar * name</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00051">mylog.h:51</a></div></div>
+<div class="ttc" id="astructd_simpy_log_data_html_aa78f4ab93ed00c1bb5085bae4d9ac204"><div class="ttname"><a href="structd_simpy_log_data.html#aa78f4ab93ed00c1bb5085bae4d9ac204">dSimpyLogData::data</a></div><div class="ttdeci">gchar * data</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00050">mylog.h:50</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

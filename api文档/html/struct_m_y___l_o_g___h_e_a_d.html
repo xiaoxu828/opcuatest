@@ -1,0 +1,206 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: MY_LOG_HEAD结构体 参考</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li class="current"><a href="annotated.html"><span>类</span></a></li>
+      <li><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>类列表</span></a></li>
+      <li><a href="classes.html"><span>类索引</span></a></li>
+      <li><a href="functions.html"><span>类成员</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Public 属性</a> &#124;
+<a href="struct_m_y___l_o_g___h_e_a_d-members.html">所有成员列表</a>  </div>
+  <div class="headertitle"><div class="title">MY_LOG_HEAD结构体 参考</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>后续通过线程以及链表的方式添加日志 线程定时把链表的数据更新到日志文件里面  
+ <a href="struct_m_y___l_o_g___h_e_a_d.html#details">更多...</a></p>
+
+<p><code>#include &lt;<a class="el" href="mylog_8h_source.html">mylog.h</a>&gt;</code></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public 属性</h2></td></tr>
+<tr class="memitem:ae9c7c9d2427dc5b71ee7fa62116f2a5a"><td class="memItemLeft" align="right" valign="top">GIOChannel *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a></td></tr>
+<tr class="separator:ae9c7c9d2427dc5b71ee7fa62116f2a5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c27ca126972186399ea40b849935741"><td class="memItemLeft" align="right" valign="top">enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">flag</a></td></tr>
+<tr class="separator:a6c27ca126972186399ea40b849935741"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3a9954e9a99586a1b43e45f306abe48"><td class="memItemLeft" align="right" valign="top">GList *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#aa3a9954e9a99586a1b43e45f306abe48">list</a></td></tr>
+<tr class="separator:aa3a9954e9a99586a1b43e45f306abe48"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05674c1ccce42ccbb9ad3a985f374b59"><td class="memItemLeft" align="right" valign="top">GThread *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#a05674c1ccce42ccbb9ad3a985f374b59">th</a></td></tr>
+<tr class="separator:a05674c1ccce42ccbb9ad3a985f374b59"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ac3516bc910fbcc79686cb214f8840"><td class="memItemLeft" align="right" valign="top">GMutex *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#a75ac3516bc910fbcc79686cb214f8840">mutexdrop</a></td></tr>
+<tr class="separator:a75ac3516bc910fbcc79686cb214f8840"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a71cc07f4f75c8bcee688f2e5d272fbad"><td class="memItemLeft" align="right" valign="top">GIOChannel *(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#a71cc07f4f75c8bcee688f2e5d272fbad">my_log_creat</a> )(gchar *<a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a>, enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> <a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">flag</a>)</td></tr>
+<tr class="separator:a71cc07f4f75c8bcee688f2e5d272fbad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd820e2bd22a14b0d92033dee2b4221b"><td class="memItemLeft" align="right" valign="top">gboolean(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#acd820e2bd22a14b0d92033dee2b4221b">my_log_write</a> )(GIOChannel *<a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a>, enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> <a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">flag</a>, gchar *data)</td></tr>
+<tr class="separator:acd820e2bd22a14b0d92033dee2b4221b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">详细描述</h2>
+<div class="textblock"><p>后续通过线程以及链表的方式添加日志 线程定时把链表的数据更新到日志文件里面 </p>
+<dl class="section version"><dt>版本</dt><dd>1.0 </dd></dl>
+<dl class="section author"><dt>作者</dt><dd>xuzhang (<a href="#" onclick="location.href='mai'+'lto:'+'you'+'@d'+'oma'+'in'+'.co'+'m'; return false;">you@d<span class="obfuscator">.nosp@m.</span>omai<span class="obfuscator">.nosp@m.</span>n.com</a>) </dd></dl>
+<dl class="section date"><dt>日期</dt><dd>2022-08-11 </dd></dl>
+<dl class="section copyright"><dt>版权所有</dt><dd>Copyright (c) 2022 </dd></dl>
+
+<p class="definition">在文件 <a class="el" href="mylog_8h_source.html">mylog.h</a> 第 <a class="el" href="mylog_8h_source.html#l00038">38</a> 行定义.</p>
+</div><h2 class="groupheader">类成员变量说明</h2>
+<a id="a6c27ca126972186399ea40b849935741" name="a6c27ca126972186399ea40b849935741"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c27ca126972186399ea40b849935741">&#9670;&#160;</a></span>flag</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> MY_LOG_HEAD::flag</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="mylog_8h_source.html">mylog.h</a> 第 <a class="el" href="mylog_8h_source.html#l00040">40</a> 行定义.</p>
+
+</div>
+</div>
+<a id="aa3a9954e9a99586a1b43e45f306abe48" name="aa3a9954e9a99586a1b43e45f306abe48"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3a9954e9a99586a1b43e45f306abe48">&#9670;&#160;</a></span>list</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GList* MY_LOG_HEAD::list</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="mylog_8h_source.html">mylog.h</a> 第 <a class="el" href="mylog_8h_source.html#l00041">41</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a75ac3516bc910fbcc79686cb214f8840" name="a75ac3516bc910fbcc79686cb214f8840"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75ac3516bc910fbcc79686cb214f8840">&#9670;&#160;</a></span>mutexdrop</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GMutex* MY_LOG_HEAD::mutexdrop</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="mylog_8h_source.html">mylog.h</a> 第 <a class="el" href="mylog_8h_source.html#l00043">43</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a71cc07f4f75c8bcee688f2e5d272fbad" name="a71cc07f4f75c8bcee688f2e5d272fbad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a71cc07f4f75c8bcee688f2e5d272fbad">&#9670;&#160;</a></span>my_log_creat</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GIOChannel *(* MY_LOG_HEAD::my_log_creat) (gchar *<a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a>, enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> <a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">flag</a>)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="mylog_8h_source.html">mylog.h</a> 第 <a class="el" href="mylog_8h_source.html#l00044">44</a> 行定义.</p>
+
+</div>
+</div>
+<a id="acd820e2bd22a14b0d92033dee2b4221b" name="acd820e2bd22a14b0d92033dee2b4221b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd820e2bd22a14b0d92033dee2b4221b">&#9670;&#160;</a></span>my_log_write</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">gboolean(* MY_LOG_HEAD::my_log_write) (GIOChannel *<a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a>, enum <a class="el" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> <a class="el" href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">flag</a>, gchar *data)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="mylog_8h_source.html">mylog.h</a> 第 <a class="el" href="mylog_8h_source.html#l00045">45</a> 行定义.</p>
+
+</div>
+</div>
+<a id="ae9c7c9d2427dc5b71ee7fa62116f2a5a" name="ae9c7c9d2427dc5b71ee7fa62116f2a5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae9c7c9d2427dc5b71ee7fa62116f2a5a">&#9670;&#160;</a></span>stream</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GIOChannel* MY_LOG_HEAD::stream</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="mylog_8h_source.html">mylog.h</a> 第 <a class="el" href="mylog_8h_source.html#l00039">39</a> 行定义.</p>
+
+</div>
+</div>
+<a id="a05674c1ccce42ccbb9ad3a985f374b59" name="a05674c1ccce42ccbb9ad3a985f374b59"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05674c1ccce42ccbb9ad3a985f374b59">&#9670;&#160;</a></span>th</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">GThread* MY_LOG_HEAD::th</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">在文件 <a class="el" href="mylog_8h_source.html">mylog.h</a> 第 <a class="el" href="mylog_8h_source.html#l00042">42</a> 行定义.</p>
+
+</div>
+</div>
+<hr/>该结构体的文档由以下文件生成:<ul>
+<li>D:/github/gtk4.0_uwb/gtk/log/<a class="el" href="mylog_8h_source.html">mylog.h</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/github/gtk4.0_uwb/gtk/mymalloc/mymalloc.h 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_aa394cd1d9abb8ffe941d9aaafca8d03.html">github</a></li><li class="navelem"><a class="el" href="dir_fd32216270b3951a38ee56489445cdd4.html">gtk4.0_uwb</a></li><li class="navelem"><a class="el" href="dir_68230846a0c21bbfab9811caeccbfa98.html">gtk</a></li><li class="navelem"><a class="el" href="dir_a2a6e441c2d090f9ac0e7d3eb2dd33a3.html">mymalloc</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">mymalloc.h</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="mymalloc_8h.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">//TODO </span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"></span><span class="preprocessor">#ifndef mymalloc_H</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#define mymalloc_H</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include&lt;stdlib.h&gt;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include&lt;stdio.h&gt;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include&lt;glib.h&gt;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="struct_m_a_l_l_o_c___d_a_t_e.html">   29</a></span><span class="keyword">typedef</span> <span class="keyword">struct  </span><a class="code hl_struct" href="struct_m_a_l_l_o_c___d_a_t_e.html">MALLOC_DATE</a>{</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="struct_m_a_l_l_o_c___d_a_t_e.html#aea689701cb58b97ee6bb66ed4ab08f92">   30</a></span>        <span class="keywordtype">char</span>*<a class="code hl_variable" href="struct_m_a_l_l_o_c___d_a_t_e.html#aea689701cb58b97ee6bb66ed4ab08f92">func_name</a>;<span class="comment">//函数名字</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="struct_m_a_l_l_o_c___d_a_t_e.html#a67505a22b50434070176d2f7a3c12f03">   31</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_m_a_l_l_o_c___d_a_t_e.html#a67505a22b50434070176d2f7a3c12f03">line</a>;<span class="comment">//第几行</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="struct_m_a_l_l_o_c___d_a_t_e.html#a80c6d51fbf88617d5892afbbbbc5ff82">   32</a></span>        <span class="keywordtype">int</span> <a class="code hl_variable" href="struct_m_a_l_l_o_c___d_a_t_e.html#a80c6d51fbf88617d5892afbbbbc5ff82">sze</a>;<span class="comment">//大小</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="struct_m_a_l_l_o_c___d_a_t_e.html#aa11733ebd7b69a8321136440290f604c">   33</a></span>        <span class="keywordtype">char</span>* <a class="code hl_variable" href="struct_m_a_l_l_o_c___d_a_t_e.html#aa11733ebd7b69a8321136440290f604c">file_name</a>;<span class="comment">//文件名字</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="struct_m_a_l_l_o_c___d_a_t_e.html#a86a3d46b3e492ff6c27aa4121960d490">   34</a></span>        <span class="keywordtype">char</span>* <a class="code hl_variable" href="struct_m_a_l_l_o_c___d_a_t_e.html#a86a3d46b3e492ff6c27aa4121960d490">name</a>;<span class="comment">//变量名字</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="struct_m_a_l_l_o_c___d_a_t_e.html#a12ae737a9b132399df80e8e39f5af78a">   35</a></span>        gpointer <a class="code hl_variable" href="struct_m_a_l_l_o_c___d_a_t_e.html#a12ae737a9b132399df80e8e39f5af78a">adder</a>;</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno"><a class="line" href="mymalloc_8h.html#a5cf9641ef31e030721e1fcca3d9912c3">   37</a></span>}<a class="code hl_typedef" href="mymalloc_8h.html#a5cf9641ef31e030721e1fcca3d9912c3">Malloc_Date</a>,*<a class="code hl_typedef" href="mymalloc_8h.html#ac6068ddebba05fce67cc23261ec5766d">malloc_date</a>;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>gpointer <a class="code hl_function" href="mymalloc_8h.html#a690c2265c4b965a2d63be882043d777a">MY_malloc</a>(<span class="keywordtype">char</span>* file_name,<span class="keywordtype">char</span>* func_name,<span class="keywordtype">char</span>* name,<span class="keywordtype">int</span> line ,<span class="keywordtype">size_t</span> siz);</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">void</span> <a class="code hl_function" href="mymalloc_8h.html#ae292d6f04efc0cec3283a311c3a7d7ad">MY_free</a>(gpointer d);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="keywordtype">void</span> <a class="code hl_function" href="mymalloc_8h.html#a5b2871b82f024e2722ff0d0961291273">MY_malloc_close</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keywordtype">void</span> <a class="code hl_function" href="mymalloc_8h.html#afdfbf1251eed0e2b554f3b96ce9bfce5">free_print</a>(<span class="keywordtype">void</span>*(func)(<span class="keywordtype">char</span>* <span class="keywordtype">string</span>));</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="mymalloc_8h.html#a018074880cdb2ce1accb8084c5880567">   58</a></span><span class="preprocessor"> #define my_malloc MY_malloc</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="mymalloc_8h.html#a33dde2838c15bdff5331a876a6b54050">   59</a></span><span class="preprocessor"> #define my_free MY_free</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment">// void my_malloc_ini();</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="amymalloc_8h_html_a5b2871b82f024e2722ff0d0961291273"><div class="ttname"><a href="mymalloc_8h.html#a5b2871b82f024e2722ff0d0961291273">MY_malloc_close</a></div><div class="ttdeci">void MY_malloc_close(void)</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8c_source.html#l00191">mymalloc.c:191</a></div></div>
+<div class="ttc" id="amymalloc_8h_html_a5cf9641ef31e030721e1fcca3d9912c3"><div class="ttname"><a href="mymalloc_8h.html#a5cf9641ef31e030721e1fcca3d9912c3">Malloc_Date</a></div><div class="ttdeci">struct MALLOC_DATE Malloc_Date</div><div class="ttdoc">用于调试内存泄漏的文件 包括的功能，申请内存，释放内存，打印没有被释放的函数； 使用示例 1.重定义malloc，free 函数； 2.申请内存 3.释放内存 4....</div></div>
+<div class="ttc" id="amymalloc_8h_html_a690c2265c4b965a2d63be882043d777a"><div class="ttname"><a href="mymalloc_8h.html#a690c2265c4b965a2d63be882043d777a">MY_malloc</a></div><div class="ttdeci">gpointer MY_malloc(char *file_name, char *func_name, char *name, int line, size_t siz)</div><div class="ttdoc">用于申请内存</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8c_source.html#l00092">mymalloc.c:92</a></div></div>
+<div class="ttc" id="amymalloc_8h_html_ac6068ddebba05fce67cc23261ec5766d"><div class="ttname"><a href="mymalloc_8h.html#ac6068ddebba05fce67cc23261ec5766d">malloc_date</a></div><div class="ttdeci">struct MALLOC_DATE * malloc_date</div></div>
+<div class="ttc" id="amymalloc_8h_html_ae292d6f04efc0cec3283a311c3a7d7ad"><div class="ttname"><a href="mymalloc_8h.html#ae292d6f04efc0cec3283a311c3a7d7ad">MY_free</a></div><div class="ttdeci">void MY_free(gpointer d)</div><div class="ttdoc">Construct a new my free object</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8c_source.html#l00157">mymalloc.c:157</a></div></div>
+<div class="ttc" id="amymalloc_8h_html_afdfbf1251eed0e2b554f3b96ce9bfce5"><div class="ttname"><a href="mymalloc_8h.html#afdfbf1251eed0e2b554f3b96ce9bfce5">free_print</a></div><div class="ttdeci">void free_print(void *(func)(char *string))</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8c_source.html#l00194">mymalloc.c:194</a></div></div>
+<div class="ttc" id="astruct_m_a_l_l_o_c___d_a_t_e_html"><div class="ttname"><a href="struct_m_a_l_l_o_c___d_a_t_e.html">MALLOC_DATE</a></div><div class="ttdoc">用于调试内存泄漏的文件 包括的功能，申请内存，释放内存，打印没有被释放的函数； 使用示例 1.重定义malloc，free 函数； 2.申请内存 3.释放内存 4....</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8h_source.html#l00029">mymalloc.h:29</a></div></div>
+<div class="ttc" id="astruct_m_a_l_l_o_c___d_a_t_e_html_a12ae737a9b132399df80e8e39f5af78a"><div class="ttname"><a href="struct_m_a_l_l_o_c___d_a_t_e.html#a12ae737a9b132399df80e8e39f5af78a">MALLOC_DATE::adder</a></div><div class="ttdeci">gpointer adder</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8h_source.html#l00035">mymalloc.h:35</a></div></div>
+<div class="ttc" id="astruct_m_a_l_l_o_c___d_a_t_e_html_a67505a22b50434070176d2f7a3c12f03"><div class="ttname"><a href="struct_m_a_l_l_o_c___d_a_t_e.html#a67505a22b50434070176d2f7a3c12f03">MALLOC_DATE::line</a></div><div class="ttdeci">int line</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8h_source.html#l00031">mymalloc.h:31</a></div></div>
+<div class="ttc" id="astruct_m_a_l_l_o_c___d_a_t_e_html_a80c6d51fbf88617d5892afbbbbc5ff82"><div class="ttname"><a href="struct_m_a_l_l_o_c___d_a_t_e.html#a80c6d51fbf88617d5892afbbbbc5ff82">MALLOC_DATE::sze</a></div><div class="ttdeci">int sze</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8h_source.html#l00032">mymalloc.h:32</a></div></div>
+<div class="ttc" id="astruct_m_a_l_l_o_c___d_a_t_e_html_a86a3d46b3e492ff6c27aa4121960d490"><div class="ttname"><a href="struct_m_a_l_l_o_c___d_a_t_e.html#a86a3d46b3e492ff6c27aa4121960d490">MALLOC_DATE::name</a></div><div class="ttdeci">char * name</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8h_source.html#l00034">mymalloc.h:34</a></div></div>
+<div class="ttc" id="astruct_m_a_l_l_o_c___d_a_t_e_html_aa11733ebd7b69a8321136440290f604c"><div class="ttname"><a href="struct_m_a_l_l_o_c___d_a_t_e.html#aa11733ebd7b69a8321136440290f604c">MALLOC_DATE::file_name</a></div><div class="ttdeci">char * file_name</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8h_source.html#l00033">mymalloc.h:33</a></div></div>
+<div class="ttc" id="astruct_m_a_l_l_o_c___d_a_t_e_html_aea689701cb58b97ee6bb66ed4ab08f92"><div class="ttname"><a href="struct_m_a_l_l_o_c___d_a_t_e.html#aea689701cb58b97ee6bb66ed4ab08f92">MALLOC_DATE::func_name</a></div><div class="ttdeci">char * func_name</div><div class="ttdef"><b>Definition:</b> <a href="mymalloc_8h_source.html#l00030">mymalloc.h:30</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

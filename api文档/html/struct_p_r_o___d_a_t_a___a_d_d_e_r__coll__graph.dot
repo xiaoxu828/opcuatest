@@ -1,0 +1,10 @@
+digraph "PRO_DATA_ADDER"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  Node1 [label="PRO_DATA_ADDER",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="项目中需要用到的IO地址"];
+  Node2 -> Node1 [dir="back",color="darkorchid3",style="dashed",label=" ka1\nka2\nka3\nka4\nka5\nsp1\nsp2\nsp3\nsp4\nsp5\n..." ];
+  Node2 [label="PLC_DATA_ADDER",height=0.2,width=0.4,color="gray40", fillcolor="white", style="filled",URL="$struct_p_l_c___d_a_t_a___a_d_d_e_r.html",tooltip="一个plc映射的地址结构体"];
+}

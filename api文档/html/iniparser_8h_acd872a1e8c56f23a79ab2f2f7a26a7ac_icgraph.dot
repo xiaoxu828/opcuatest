@@ -1,0 +1,17 @@
+digraph "iniparser_find_entry"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [label="iniparser_find_entry",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Finds out if a given entry exists in a dictionary"];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="iniparser_dumpsection_ini",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#a790111c03777a5377712b5ea78431637",tooltip="Save a dictionary section to a loadable ini file"];
+  Node2 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="iniparser_dump_ini",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#af3d206ad34f6b9eefe394896d68d140c",tooltip="Save a dictionary to a loadable ini file"];
+  Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="iniparser_getseckeys",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#ae8b877f872727f9129976b8f2de38e48",tooltip="Get the number of keys in a section of a dictionary."];
+  Node1 -> Node5 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="iniparser_getsecnkeys",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#a3e50b16a71a4fbd2183bec0424699932",tooltip="Get the number of keys in a section of a dictionary."];
+}

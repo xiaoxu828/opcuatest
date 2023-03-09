@@ -1,0 +1,15 @@
+digraph "cJSON_CreateNumber"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [label="cJSON_CreateNumber",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="cJSON_CreateDoubleArray",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$c_j_s_o_n_8c.html#a84dbac3e0311ca3b9b70295c0f957fe0",tooltip=" "];
+  Node1 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="cJSON_CreateFloatArray",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$c_j_s_o_n_8c.html#acc0d7be131da59b548efabbd899ed5ec",tooltip=" "];
+  Node1 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="cJSON_CreateIntArray",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$c_j_s_o_n_8c.html#a148413157974ededa7262bb924678ff9",tooltip=" "];
+}

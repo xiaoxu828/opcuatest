@@ -1,0 +1,384 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.9.6"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>My Project: D:/github/gtk4.0_uwb/gtk/log/mylog.c 源文件</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">My Project
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 制作者 Doxygen 1.9.6 -->
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>首页</span></a></li>
+      <li><a href="pages.html"><span>相关页面</span></a></li>
+      <li><a href="annotated.html"><span>类</span></a></li>
+      <li class="current"><a href="files.html"><span>文件</span></a></li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>文件列表</span></a></li>
+      <li><a href="globals.html"><span>文件成员</span></a></li>
+    </ul>
+  </div>
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><a class="el" href="dir_aa394cd1d9abb8ffe941d9aaafca8d03.html">github</a></li><li class="navelem"><a class="el" href="dir_fd32216270b3951a38ee56489445cdd4.html">gtk4.0_uwb</a></li><li class="navelem"><a class="el" href="dir_68230846a0c21bbfab9811caeccbfa98.html">gtk</a></li><li class="navelem"><a class="el" href="dir_e805a2ae120f9f40ecd023973ea01d06.html">log</a></li>  </ul>
+</div>
+</div><!-- top -->
+<div class="header">
+  <div class="headertitle"><div class="title">mylog.c</div></div>
+</div><!--header-->
+<div class="contents">
+<a href="mylog_8c.html">浏览该文件的文档.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="comment">// TODO 添加对其他输出的支持，比如网络，将日志输出到服务器，或者打印到控制台</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="comment">// TODO  跟内存泄漏工具结合，查看内存日志；</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment"></span><span class="preprocessor">#include &lt;glib-2.0/glib.h&gt;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="mylog_8h.html">mylog.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="mylog_8c.html#a006c7ba6bd125f948c3511f436363af7">   26</a></span>GList *<a class="code hl_variable" href="mylog_8c.html#a006c7ba6bd125f948c3511f436363af7">lis</a> = NULL;</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">static</span> GAsyncQueue *queue;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">static</span> <span class="keywordtype">int</span> isrun = 0;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="mylog_8c.html#a3aeb81c1486f3e4961a58e0818f02f1a">   40</a></span>GIOChannel *<a class="code hl_function" href="mylog_8c.html#a3aeb81c1486f3e4961a58e0818f02f1a">my_log_creat</a>(gchar *stream, <span class="keyword">enum</span> <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> flag)</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>{</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">if</span> (stream == NULL)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    GIOChannel *ret = NULL;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    <span class="keywordflow">if</span> (flag == <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea1c1c39536eb4a784ab8ebea4e32d219c">STD_IN</a>)</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    {</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        <span class="keywordflow">return</span> NULL;</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    }</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">if</span> (flag == <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a> &amp;&amp; stream != NULL <span class="comment">/* condition */</span>)</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        GError *err = NULL;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        ret = g_io_channel_new_file(stream, <span class="stringliteral">&quot;a+&quot;</span>, &amp;err);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        <span class="keywordflow">if</span> (ret == NULL)</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>        {</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>            g_print(<span class="stringliteral">&quot;%s\n&quot;</span>, err-&gt;message);</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>            g_error_free(err);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>            err = NULL;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>        }</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <span class="comment">/* code */</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    }</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="mylog_8c.html#a6eaf3825ef8381254074ae6c1c505236">   66</a></span>GList *<a class="code hl_variable" href="mylog_8c.html#a6eaf3825ef8381254074ae6c1c505236">temp_lis</a> = NULL;</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="mylog_8c.html#aa1d3a78ef72b97643e902ff3b13299b1">   67</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mylog_8c.html#aa1d3a78ef72b97643e902ff3b13299b1">foreachfunc</a>(gpointer *listd, gpointer usr_d)</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <a class="code hl_struct" href="structd_simpy_log_data.html">dSimpyLogData</a> *lOgD = listd;</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    <span class="comment">// 创建流，</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    GIOChannel *<a class="code hl_variable" href="test_8c.html#a0fa89124c584348c1c6201746cfb9eb7">channel</a> = NULL;</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    <span class="keywordflow">if</span> (lOgD &amp;&amp; lOgD-&gt;<a class="code hl_variable" href="structd_simpy_log_data.html#a695926ff55d0800265ae348f798f5ae8">name</a>)</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>        <a class="code hl_variable" href="test_8c.html#a0fa89124c584348c1c6201746cfb9eb7">channel</a> = <a class="code hl_function" href="mylog_8c.html#a3aeb81c1486f3e4961a58e0818f02f1a">my_log_creat</a>(lOgD-&gt;<a class="code hl_variable" href="structd_simpy_log_data.html#a695926ff55d0800265ae348f798f5ae8">name</a>, <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a>);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <a class="code hl_function" href="mylog_8c.html#a56f4c7e594901a271fda19b30564966d">my_log_write</a>(<a class="code hl_variable" href="test_8c.html#a0fa89124c584348c1c6201746cfb9eb7">channel</a>, <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a>, lOgD-&gt;<a class="code hl_variable" href="structd_simpy_log_data.html#aa78f4ab93ed00c1bb5085bae4d9ac204">data</a>);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    <a class="code hl_function" href="mylog_8c.html#ada80f4d7baa1c180b65041d93aeb27d8">my_log_close</a>(&amp;<a class="code hl_variable" href="test_8c.html#a0fa89124c584348c1c6201746cfb9eb7">channel</a>);</div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>    GList *tep_lis = g_list_find(<a class="code hl_variable" href="mylog_8c.html#a006c7ba6bd125f948c3511f436363af7">lis</a>, listd);</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">if</span> (tep_lis)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        g_free(lOgD-&gt;<a class="code hl_variable" href="structd_simpy_log_data.html#aa78f4ab93ed00c1bb5085bae4d9ac204">data</a>);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        g_free(lOgD-&gt;<a class="code hl_variable" href="structd_simpy_log_data.html#a695926ff55d0800265ae348f798f5ae8">name</a>);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        lOgD-&gt;<a class="code hl_variable" href="structd_simpy_log_data.html#aa78f4ab93ed00c1bb5085bae4d9ac204">data</a> = NULL;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        lOgD-&gt;<a class="code hl_variable" href="structd_simpy_log_data.html#a695926ff55d0800265ae348f798f5ae8">name</a> = NULL;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>    }</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_variable" href="mylog_8c.html#a6eaf3825ef8381254074ae6c1c505236">temp_lis</a> = g_slist_delete_link(<a class="code hl_variable" href="mylog_8c.html#a6eaf3825ef8381254074ae6c1c505236">temp_lis</a>, tep_lis);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    tep_lis = NULL;</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>}</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="mylog_8c.html#a85ead70fedea847c961f259e63e5af13">   88</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mylog_8c.html#a85ead70fedea847c961f259e63e5af13">my_log_threadf</a>(gboolean d)</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>{</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">while</span> (d <span class="comment">/* condition */</span>)</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    {</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>        <a class="code hl_variable" href="mylog_8c.html#a6eaf3825ef8381254074ae6c1c505236">temp_lis</a> = <a class="code hl_variable" href="mylog_8c.html#a006c7ba6bd125f948c3511f436363af7">lis</a>;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        <a class="code hl_variable" href="mylog_8c.html#a006c7ba6bd125f948c3511f436363af7">lis</a> = NULL;</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>        g_list_foreach(<a class="code hl_variable" href="mylog_8c.html#a6eaf3825ef8381254074ae6c1c505236">temp_lis</a>, <a class="code hl_function" href="mylog_8c.html#aa1d3a78ef72b97643e902ff3b13299b1">foreachfunc</a>, <a class="code hl_variable" href="mylog_8c.html#a6eaf3825ef8381254074ae6c1c505236">temp_lis</a>);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        g_usleep(1000000);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>        <span class="comment">/* code */</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    }</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span> </div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="mylog_8c.html#acc21ff87369e6e096bbfc3cad86fa6be">  110</a></span>gboolean <a class="code hl_function" href="mylog_8c.html#acc21ff87369e6e096bbfc3cad86fa6be">my_log_simplyf</a>(<a class="code hl_struct" href="structd_simpy_log_data.html">dSimpyLogData</a> *d, gboolean *flag)</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>{</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordflow">if</span> (*flag == FALSE)</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    {</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>        *flag = TRUE;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        g_thread_new(NULL, <a class="code hl_function" href="mylog_8c.html#a85ead70fedea847c961f259e63e5af13">my_log_threadf</a>, flag);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    }</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">if</span> (d)</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <a class="code hl_variable" href="mylog_8c.html#a006c7ba6bd125f948c3511f436363af7">lis</a> = g_list_prepend(<a class="code hl_variable" href="mylog_8c.html#a006c7ba6bd125f948c3511f436363af7">lis</a>, d);</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="mylog_8c.html#a56f4c7e594901a271fda19b30564966d">  132</a></span>gboolean <a class="code hl_function" href="mylog_8c.html#a56f4c7e594901a271fda19b30564966d">my_log_write</a>(GIOChannel *stream, <span class="keyword">enum</span> <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> flag, gchar *data)</div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>{</div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>    <span class="keywordflow">if</span> (stream == NULL)</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    {</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    }</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <span class="keywordflow">if</span> (flag == <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a>)</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    {</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        GDateTime *tim;</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>        tim = g_date_time_new_now_local();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>        <span class="keywordflow">if</span> (tim == NULL)</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>        {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>        }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>        gchar *temp = g_date_time_format(tim, <span class="stringliteral">&quot;%Y-%m-%d %H:%M:%S:%f&quot;</span>);</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>        <span class="keywordflow">if</span> (temp == NULL)</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>        {</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>            g_date_time_unref(tim);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>            tim = NULL;</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>        }</div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>        <span class="comment">//  int lenth=strlen(temp)+strlen(data);</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>        <span class="comment">// gsize siz;</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>        gchar *buf = g_strconcat(temp, <span class="stringliteral">&quot;:&quot;</span>, data, <span class="stringliteral">&quot;\r\n&quot;</span>, NULL);</div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>        <span class="keywordflow">if</span> (buf == NULL)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>            g_date_time_unref(tim);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>            tim = NULL;</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>            g_free(temp);</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>            temp = NULL;</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        }</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        GError *err = NULL;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>        g_io_channel_write_chars(stream, buf, strlen(buf) + 1, NULL, &amp;err);</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>        <span class="keywordflow">if</span> (err)</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>        {</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>            g_print(<span class="stringliteral">&quot;%s\n&quot;</span>, err-&gt;message);</div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>            g_error_free(err);</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>            err = NULL;</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>            g_date_time_unref(tim);</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            tim = NULL;</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            g_free(temp);</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>            temp = NULL;</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>            g_free(buf);</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>            buf = NULL;</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>            <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        }</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        g_io_channel_flush(stream, NULL);</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        g_date_time_unref(tim);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>        tim = NULL;</div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>        g_free(temp);</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>        temp = NULL;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        g_free(buf);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        buf = NULL;</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    }</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>}</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno"><a class="line" href="mylog_8c.html#ada80f4d7baa1c180b65041d93aeb27d8">  195</a></span>gboolean <a class="code hl_function" href="mylog_8c.html#ada80f4d7baa1c180b65041d93aeb27d8">my_log_close</a>(GIOChannel **stream)</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>{</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordflow">if</span> (*stream)</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>    {</div>
+<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span>        GIOChannel *gio = *stream;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span>        <span class="keywordflow">if</span> (gio)</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>            g_io_channel_shutdown(gio, <span class="keyword">true</span>, NULL);</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>        g_io_channel_unref(gio);</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>        *stream = NULL;</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>    }</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>}</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span><span class="keyword">static</span> <span class="keywordtype">void</span> func_set(<a class="code hl_struct" href="struct_m_y___l_o_g___h_e_a_d.html">my_log_head</a> log_class, <span class="keyword">enum</span> <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> flag)</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>{</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    g_assert(log_class != NULL);</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    g_assert(flag == <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a>);</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>    log_class-&gt;<a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">flag</a> = flag;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    log_class-&gt;<a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#aa3a9954e9a99586a1b43e45f306abe48">list</a> = NULL;</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span>    log_class-&gt;<a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#a71cc07f4f75c8bcee688f2e5d272fbad">my_log_creat</a> = <a class="code hl_function" href="mylog_8c.html#a3aeb81c1486f3e4961a58e0818f02f1a">my_log_creat</a>;</div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    log_class-&gt;<a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#acd820e2bd22a14b0d92033dee2b4221b">my_log_write</a> = <a class="code hl_function" href="mylog_8c.html#a56f4c7e594901a271fda19b30564966d">my_log_write</a>;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="comment">// return ;</span></div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>}</div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno"><a class="line" href="mylog_8c.html#af2fb4e3e2d48d890b6f1ef4bcc63b614">  239</a></span><a class="code hl_struct" href="struct_m_y___l_o_g___h_e_a_d.html">my_log_head</a> <a class="code hl_function" href="mylog_8c.html#af2fb4e3e2d48d890b6f1ef4bcc63b614">my_log_class_creat</a>(gchar *stream, <span class="keyword">enum</span> <a class="code hl_enumeration" href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a> flag)</div>
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>{</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    g_assert(stream != NULL);</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>    g_assert(flag == <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a>);</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>    <a class="code hl_struct" href="struct_m_y___l_o_g___h_e_a_d.html">my_log_head</a> ret = g_malloc(<span class="keyword">sizeof</span>(<a class="code hl_struct" href="struct_m_y___l_o_g___h_e_a_d.html">My_log_head</a>));</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>    <span class="keywordflow">if</span> (ret == NULL)</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>    {</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span>        <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>    }</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>    func_set(ret, <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a>);</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>    ret-&gt;<a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a> = ret-&gt;<a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#a71cc07f4f75c8bcee688f2e5d272fbad">my_log_creat</a>(stream, <a class="code hl_enumvalue" href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a>);</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>    <span class="keywordflow">if</span> (ret-&gt;<a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a> == NULL)</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>    {</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>        g_free(ret);</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        ret = NULL;</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    }</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>    <span class="keywordflow">return</span> ret;</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>}</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno"><a class="line" href="mylog_8c.html#a3618d55c2bf81b02b6d5044fd87cc009">  268</a></span>gboolean <a class="code hl_function" href="mylog_8c.html#a3618d55c2bf81b02b6d5044fd87cc009">my_log_class_close</a>(<a class="code hl_struct" href="struct_m_y___l_o_g___h_e_a_d.html">my_log_head</a> *class_log)</div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span>{</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keywordflow">if</span> (class_log == NULL)</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    {</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>    }</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    <a class="code hl_struct" href="struct_m_y___l_o_g___h_e_a_d.html">my_log_head</a> temp = *class_log;</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>    <span class="comment">// 集成链表以后需要将链表的数据全部写入日志，释放链表才能进行下一步；</span></div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>    g_io_channel_shutdown(temp-&gt;<a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a>, <span class="keyword">true</span>, NULL);</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    temp-&gt;<a class="code hl_variable" href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">stream</a> = NULL;</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    <span class="keywordflow">if</span> (temp)</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    {</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>        <span class="comment">// 释放temp内部动态内存；</span></div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>        g_free(temp);</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>        temp = NULL;</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    }</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span> </div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>}</div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno"><a class="line" href="struct_w_r_i_t_e_l_o_g.html">  287</a></span><span class="keyword">struct </span><a class="code hl_struct" href="struct_w_r_i_t_e_l_o_g.html">WRITELOG</a></div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>{</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno"><a class="line" href="struct_w_r_i_t_e_l_o_g.html#a9dd9ee4c4f1821216c6ef95f5dfd105f">  289</a></span>    <span class="keywordtype">char</span> *<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a9dd9ee4c4f1821216c6ef95f5dfd105f">log</a>;</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno"><a class="line" href="struct_w_r_i_t_e_l_o_g.html#a72a6ceb76691d1f661d845200c800044">  290</a></span>    <span class="keywordtype">char</span> *<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a72a6ceb76691d1f661d845200c800044">title</a>;</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    <span class="comment">/* data */</span></div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>};</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno"><a class="line" href="mylog_8c.html#add722e0a1c0ee3549689c575b4572e24">  306</a></span>gboolean <a class="code hl_function" href="mylog_8c.html#add722e0a1c0ee3549689c575b4572e24">my_logfunc</a>(<span class="keywordtype">char</span> *domian, GLogLevelFlags flags, gchar *messg, gpointer d)</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>{</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span> </div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    g_autoptr(GDateTime) tim = g_date_time_new_now_local();</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    <span class="keywordflow">if</span> (tim == NULL)</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    {</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    }</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    g_autofree gchar *temp = g_date_time_format(tim, <span class="stringliteral">&quot;%Y-%m-%d %H:%M:%S:%f&quot;</span>);</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    <span class="comment">// if (tim)</span></div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    <span class="comment">//  g_date_time_unref(tim);</span></div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    <span class="comment">// tim = NULL;</span></div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    g_autofree gchar *strTitle = g_strndup(temp, 10);</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    gchar *strTitleerr = g_strdup_printf(<span class="stringliteral">&quot;%s%s.txt&quot;</span>, strTitle, domian);</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span> </div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    <span class="keywordtype">char</span> *strData = g_strconcat(d, <span class="stringliteral">&quot;:&quot;</span>, domian, <span class="stringliteral">&quot;:&quot;</span>, temp, <span class="stringliteral">&quot;:&quot;</span>, messg,<span class="stringliteral">&quot;\r\n&quot;</span>, NULL);</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>    GError *err = NULL;</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>    <span class="keywordflow">if</span> (flags == G_LOG_LEVEL_ERROR)</div>
+<div class="line"><a id="l00325" name="l00325"></a><span class="lineno">  325</span>    {</div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span>        g_autoptr(GIOChannel) channel_temp = g_io_channel_new_file(strTitleerr, <span class="stringliteral">&quot;a+&quot;</span>, NULL);</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span>        g_io_channel_write_chars(channel_temp, strData, strlen(strData) + 1, NULL, &amp;err);</div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span>        <span class="keywordflow">if</span> (err)</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span>        {</div>
+<div class="line"><a id="l00330" name="l00330"></a><span class="lineno">  330</span> </div>
+<div class="line"><a id="l00331" name="l00331"></a><span class="lineno">  331</span>            g_error_free(err);</div>
+<div class="line"><a id="l00332" name="l00332"></a><span class="lineno">  332</span>            err = NULL;</div>
+<div class="line"><a id="l00333" name="l00333"></a><span class="lineno">  333</span>        }</div>
+<div class="line"><a id="l00334" name="l00334"></a><span class="lineno">  334</span>        g_free(strTitleerr);</div>
+<div class="line"><a id="l00335" name="l00335"></a><span class="lineno">  335</span>        strTitleerr=NULL;</div>
+<div class="line"><a id="l00336" name="l00336"></a><span class="lineno">  336</span>        g_free(strData);</div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span>        strData=NULL;</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00339" name="l00339"></a><span class="lineno">  339</span>    }</div>
+<div class="line"><a id="l00340" name="l00340"></a><span class="lineno">  340</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00341" name="l00341"></a><span class="lineno">  341</span>    {</div>
+<div class="line"><a id="l00342" name="l00342"></a><span class="lineno">  342</span>        <span class="keyword">struct </span><a class="code hl_struct" href="struct_w_r_i_t_e_l_o_g.html">WRITELOG</a> *wldata = g_malloc0(<span class="keyword">sizeof</span>(<span class="keyword">struct</span> <a class="code hl_struct" href="struct_w_r_i_t_e_l_o_g.html">WRITELOG</a>));</div>
+<div class="line"><a id="l00343" name="l00343"></a><span class="lineno">  343</span>        wldata-&gt;<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a72a6ceb76691d1f661d845200c800044">title</a> = strTitleerr;</div>
+<div class="line"><a id="l00344" name="l00344"></a><span class="lineno">  344</span>        wldata-&gt;<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a9dd9ee4c4f1821216c6ef95f5dfd105f">log</a> = strData;</div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>        g_async_queue_push_unlocked(queue, (gpointer)wldata);</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>    }</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
+<div class="line"><a id="l00348" name="l00348"></a><span class="lineno">  348</span>    <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00349" name="l00349"></a><span class="lineno">  349</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>}</div>
+<div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span><span class="keyword">static</span> <span class="keywordtype">void</span> thread_log(gpointer d)</div>
+<div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span>{</div>
+<div class="line"><a id="l00362" name="l00362"></a><span class="lineno">  362</span>    <span class="keywordflow">while</span> (<span class="comment">/* condition */</span> isrun==1)</div>
+<div class="line"><a id="l00363" name="l00363"></a><span class="lineno">  363</span>    {</div>
+<div class="line"><a id="l00364" name="l00364"></a><span class="lineno">  364</span>        <span class="keywordflow">if</span> (queue)</div>
+<div class="line"><a id="l00365" name="l00365"></a><span class="lineno">  365</span>        {</div>
+<div class="line"><a id="l00366" name="l00366"></a><span class="lineno">  366</span>            <span class="keyword">struct </span><a class="code hl_struct" href="struct_w_r_i_t_e_l_o_g.html">WRITELOG</a> *l = g_async_queue_pop(queue);</div>
+<div class="line"><a id="l00367" name="l00367"></a><span class="lineno">  367</span>            GError *err=NULL;</div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span>            GIOChannel* channel_temp = g_io_channel_new_file(l-&gt;<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a72a6ceb76691d1f661d845200c800044">title</a>, <span class="stringliteral">&quot;a+&quot;</span>, NULL);</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span>            g_io_channel_write_chars(channel_temp, l-&gt;<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a9dd9ee4c4f1821216c6ef95f5dfd105f">log</a>, strlen(l-&gt;<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a9dd9ee4c4f1821216c6ef95f5dfd105f">log</a>) + 1, NULL, &amp;err);</div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>            <span class="keywordflow">if</span> (err)</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>            {</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>                g_error_free(err);</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>                err = NULL;</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>            }</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>            g_free(l-&gt;<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a9dd9ee4c4f1821216c6ef95f5dfd105f">log</a>);</div>
+<div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span>            l-&gt;<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a9dd9ee4c4f1821216c6ef95f5dfd105f">log</a>=NULL;</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>            g_free(l-&gt;<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a72a6ceb76691d1f661d845200c800044">title</a>);</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>            l-&gt;<a class="code hl_variable" href="struct_w_r_i_t_e_l_o_g.html#a72a6ceb76691d1f661d845200c800044">title</a>=NULL;</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>            g_free(l);</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>            l=NULL;</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>                g_io_channel_shutdown(channel_temp, TRUE, NULL);</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>        g_io_channel_unref(channel_temp);</div>
+<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>        channel_temp=NULL;</div>
+<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>            g_usleep(20);</div>
+<div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>        }</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno">  386</span> </div>
+<div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>        <span class="comment">/* code */</span></div>
+<div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>    }</div>
+<div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>}</div>
+<div class="line"><a id="l00390" name="l00390"></a><span class="lineno"><a class="line" href="mylog_8c.html#a4000d3dad3c1647c8fa8d7760653bbfe">  390</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="mylog_8c.html#a4000d3dad3c1647c8fa8d7760653bbfe">my_log_init</a>(<span class="keywordtype">char</span> * pid)</div>
+<div class="line"><a id="l00391" name="l00391"></a><span class="lineno">  391</span>{</div>
+<div class="line"><a id="l00392" name="l00392"></a><span class="lineno">  392</span>    </div>
+<div class="line"><a id="l00393" name="l00393"></a><span class="lineno">  393</span>   </div>
+<div class="line"><a id="l00394" name="l00394"></a><span class="lineno">  394</span>    g_log_set_default_handler((GLogFunc)<a class="code hl_function" href="mylog_8c.html#add722e0a1c0ee3549689c575b4572e24">my_logfunc</a>, (gpointer)pid);</div>
+<div class="line"><a id="l00395" name="l00395"></a><span class="lineno">  395</span>    g_setenv(<span class="stringliteral">&quot;G_MESSAGES_DEBUG&quot;</span>, <span class="stringliteral">&quot;all&quot;</span>, TRUE);</div>
+<div class="line"><a id="l00396" name="l00396"></a><span class="lineno">  396</span>    queue = g_async_queue_new();</div>
+<div class="line"><a id="l00397" name="l00397"></a><span class="lineno">  397</span>    <span class="keywordflow">if</span> (g_thread_new(NULL, thread_log, NULL))</div>
+<div class="line"><a id="l00398" name="l00398"></a><span class="lineno">  398</span>    {</div>
+<div class="line"><a id="l00399" name="l00399"></a><span class="lineno">  399</span>        isrun = 1;</div>
+<div class="line"><a id="l00400" name="l00400"></a><span class="lineno">  400</span>    }</div>
+<div class="line"><a id="l00401" name="l00401"></a><span class="lineno">  401</span> </div>
+<div class="line"><a id="l00402" name="l00402"></a><span class="lineno">  402</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00403" name="l00403"></a><span class="lineno">  403</span>}</div>
+<div class="ttc" id="amylog_8c_html_a006c7ba6bd125f948c3511f436363af7"><div class="ttname"><a href="mylog_8c.html#a006c7ba6bd125f948c3511f436363af7">lis</a></div><div class="ttdeci">GList * lis</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00026">mylog.c:26</a></div></div>
+<div class="ttc" id="amylog_8c_html_a3618d55c2bf81b02b6d5044fd87cc009"><div class="ttname"><a href="mylog_8c.html#a3618d55c2bf81b02b6d5044fd87cc009">my_log_class_close</a></div><div class="ttdeci">gboolean my_log_class_close(my_log_head *class_log)</div><div class="ttdoc">释放日志类</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00268">mylog.c:268</a></div></div>
+<div class="ttc" id="amylog_8c_html_a3aeb81c1486f3e4961a58e0818f02f1a"><div class="ttname"><a href="mylog_8c.html#a3aeb81c1486f3e4961a58e0818f02f1a">my_log_creat</a></div><div class="ttdeci">GIOChannel * my_log_creat(gchar *stream, enum LOG_FLAG flag)</div><div class="ttdoc">创建日志文件</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00040">mylog.c:40</a></div></div>
+<div class="ttc" id="amylog_8c_html_a4000d3dad3c1647c8fa8d7760653bbfe"><div class="ttname"><a href="mylog_8c.html#a4000d3dad3c1647c8fa8d7760653bbfe">my_log_init</a></div><div class="ttdeci">void my_log_init(char *pid)</div><div class="ttdoc">在使用日志以前调用，</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00390">mylog.c:390</a></div></div>
+<div class="ttc" id="amylog_8c_html_a56f4c7e594901a271fda19b30564966d"><div class="ttname"><a href="mylog_8c.html#a56f4c7e594901a271fda19b30564966d">my_log_write</a></div><div class="ttdeci">gboolean my_log_write(GIOChannel *stream, enum LOG_FLAG flag, gchar *data)</div><div class="ttdoc">写日志</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00132">mylog.c:132</a></div></div>
+<div class="ttc" id="amylog_8c_html_a6eaf3825ef8381254074ae6c1c505236"><div class="ttname"><a href="mylog_8c.html#a6eaf3825ef8381254074ae6c1c505236">temp_lis</a></div><div class="ttdeci">GList * temp_lis</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00066">mylog.c:66</a></div></div>
+<div class="ttc" id="amylog_8c_html_a85ead70fedea847c961f259e63e5af13"><div class="ttname"><a href="mylog_8c.html#a85ead70fedea847c961f259e63e5af13">my_log_threadf</a></div><div class="ttdeci">void my_log_threadf(gboolean d)</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00088">mylog.c:88</a></div></div>
+<div class="ttc" id="amylog_8c_html_aa1d3a78ef72b97643e902ff3b13299b1"><div class="ttname"><a href="mylog_8c.html#aa1d3a78ef72b97643e902ff3b13299b1">foreachfunc</a></div><div class="ttdeci">void foreachfunc(gpointer *listd, gpointer usr_d)</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00067">mylog.c:67</a></div></div>
+<div class="ttc" id="amylog_8c_html_acc21ff87369e6e096bbfc3cad86fa6be"><div class="ttname"><a href="mylog_8c.html#acc21ff87369e6e096bbfc3cad86fa6be">my_log_simplyf</a></div><div class="ttdeci">gboolean my_log_simplyf(dSimpyLogData *d, gboolean *flag)</div><div class="ttdoc">先把数据写入链表，等待cpu空闲</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00110">mylog.c:110</a></div></div>
+<div class="ttc" id="amylog_8c_html_ada80f4d7baa1c180b65041d93aeb27d8"><div class="ttname"><a href="mylog_8c.html#ada80f4d7baa1c180b65041d93aeb27d8">my_log_close</a></div><div class="ttdeci">gboolean my_log_close(GIOChannel **stream)</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00195">mylog.c:195</a></div></div>
+<div class="ttc" id="amylog_8c_html_add722e0a1c0ee3549689c575b4572e24"><div class="ttname"><a href="mylog_8c.html#add722e0a1c0ee3549689c575b4572e24">my_logfunc</a></div><div class="ttdeci">gboolean my_logfunc(char *domian, GLogLevelFlags flags, gchar *messg, gpointer d)</div><div class="ttdoc">日志的回调函数，实际写入的日志除了err等级会立刻写入以外，其他的日志都会先保存到队列里面。</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00306">mylog.c:306</a></div></div>
+<div class="ttc" id="amylog_8c_html_af2fb4e3e2d48d890b6f1ef4bcc63b614"><div class="ttname"><a href="mylog_8c.html#af2fb4e3e2d48d890b6f1ef4bcc63b614">my_log_class_creat</a></div><div class="ttdeci">my_log_head my_log_class_creat(gchar *stream, enum LOG_FLAG flag)</div><div class="ttdoc">关闭类</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00239">mylog.c:239</a></div></div>
+<div class="ttc" id="amylog_8h_html"><div class="ttname"><a href="mylog_8h.html">mylog.h</a></div><div class="ttdoc">最终定义的所有外部接口，只有my_log_init使用，当外部接口调用日志时调用g_log,就会自动调用mylog.c定义的回调函数</div></div>
+<div class="ttc" id="amylog_8h_html_a5429f69888a75e40452723131e4af24e"><div class="ttname"><a href="mylog_8h.html#a5429f69888a75e40452723131e4af24e">LOG_FLAG</a></div><div class="ttdeci">LOG_FLAG</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00017">mylog.h:17</a></div></div>
+<div class="ttc" id="amylog_8h_html_a5429f69888a75e40452723131e4af24ea1c1c39536eb4a784ab8ebea4e32d219c"><div class="ttname"><a href="mylog_8h.html#a5429f69888a75e40452723131e4af24ea1c1c39536eb4a784ab8ebea4e32d219c">STD_IN</a></div><div class="ttdeci">@ STD_IN</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00018">mylog.h:18</a></div></div>
+<div class="ttc" id="amylog_8h_html_a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6"><div class="ttname"><a href="mylog_8h.html#a5429f69888a75e40452723131e4af24ead9085ced9745ad5d7a10153562784ba6">STD_FILE</a></div><div class="ttdeci">@ STD_FILE</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00019">mylog.h:19</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html">MY_LOG_HEAD</a></div><div class="ttdoc">后续通过线程以及链表的方式添加日志 线程定时把链表的数据更新到日志文件里面</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00038">mylog.h:38</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_a6c27ca126972186399ea40b849935741"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#a6c27ca126972186399ea40b849935741">MY_LOG_HEAD::flag</a></div><div class="ttdeci">enum LOG_FLAG flag</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00040">mylog.h:40</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_a71cc07f4f75c8bcee688f2e5d272fbad"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#a71cc07f4f75c8bcee688f2e5d272fbad">MY_LOG_HEAD::my_log_creat</a></div><div class="ttdeci">GIOChannel *(* my_log_creat)(gchar *stream, enum LOG_FLAG flag)</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00044">mylog.h:44</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_aa3a9954e9a99586a1b43e45f306abe48"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#aa3a9954e9a99586a1b43e45f306abe48">MY_LOG_HEAD::list</a></div><div class="ttdeci">GList * list</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00041">mylog.h:41</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_acd820e2bd22a14b0d92033dee2b4221b"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#acd820e2bd22a14b0d92033dee2b4221b">MY_LOG_HEAD::my_log_write</a></div><div class="ttdeci">gboolean(* my_log_write)(GIOChannel *stream, enum LOG_FLAG flag, gchar *data)</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00045">mylog.h:45</a></div></div>
+<div class="ttc" id="astruct_m_y___l_o_g___h_e_a_d_html_ae9c7c9d2427dc5b71ee7fa62116f2a5a"><div class="ttname"><a href="struct_m_y___l_o_g___h_e_a_d.html#ae9c7c9d2427dc5b71ee7fa62116f2a5a">MY_LOG_HEAD::stream</a></div><div class="ttdeci">GIOChannel * stream</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00039">mylog.h:39</a></div></div>
+<div class="ttc" id="astruct_w_r_i_t_e_l_o_g_html"><div class="ttname"><a href="struct_w_r_i_t_e_l_o_g.html">WRITELOG</a></div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00287">mylog.c:288</a></div></div>
+<div class="ttc" id="astruct_w_r_i_t_e_l_o_g_html_a72a6ceb76691d1f661d845200c800044"><div class="ttname"><a href="struct_w_r_i_t_e_l_o_g.html#a72a6ceb76691d1f661d845200c800044">WRITELOG::title</a></div><div class="ttdeci">char * title</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00290">mylog.c:290</a></div></div>
+<div class="ttc" id="astruct_w_r_i_t_e_l_o_g_html_a9dd9ee4c4f1821216c6ef95f5dfd105f"><div class="ttname"><a href="struct_w_r_i_t_e_l_o_g.html#a9dd9ee4c4f1821216c6ef95f5dfd105f">WRITELOG::log</a></div><div class="ttdeci">char * log</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8c_source.html#l00289">mylog.c:289</a></div></div>
+<div class="ttc" id="astructd_simpy_log_data_html"><div class="ttname"><a href="structd_simpy_log_data.html">dSimpyLogData</a></div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00048">mylog.h:49</a></div></div>
+<div class="ttc" id="astructd_simpy_log_data_html_a695926ff55d0800265ae348f798f5ae8"><div class="ttname"><a href="structd_simpy_log_data.html#a695926ff55d0800265ae348f798f5ae8">dSimpyLogData::name</a></div><div class="ttdeci">gchar * name</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00051">mylog.h:51</a></div></div>
+<div class="ttc" id="astructd_simpy_log_data_html_aa78f4ab93ed00c1bb5085bae4d9ac204"><div class="ttname"><a href="structd_simpy_log_data.html#aa78f4ab93ed00c1bb5085bae4d9ac204">dSimpyLogData::data</a></div><div class="ttdeci">gchar * data</div><div class="ttdef"><b>Definition:</b> <a href="mylog_8h_source.html#l00050">mylog.h:50</a></div></div>
+<div class="ttc" id="atest_8c_html_a0fa89124c584348c1c6201746cfb9eb7"><div class="ttname"><a href="test_8c.html#a0fa89124c584348c1c6201746cfb9eb7">channel</a></div><div class="ttdeci">GIOChannel * channel</div><div class="ttdef"><b>Definition:</b> <a href="test_8c_source.html#l00050">test.c:50</a></div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+制作者&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.6
+</small></address>
+</body>
+</html>

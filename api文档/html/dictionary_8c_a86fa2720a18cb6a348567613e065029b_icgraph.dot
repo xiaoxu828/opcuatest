@@ -1,0 +1,32 @@
+digraph "dictionary_get"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [label="dictionary_get",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="Get a value from a dictionary."];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="iniparser_getstring",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#afe3c33831c0f1e812e1fbcba8cc7a44c",tooltip="Get the string associated to a key"];
+  Node2 -> Node3 [dir="back",color="steelblue1",style="solid"];
+  Node3 [label="iniparser_find_entry",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#acd872a1e8c56f23a79ab2f2f7a26a7ac",tooltip="Finds out if a given entry exists in a dictionary"];
+  Node3 -> Node4 [dir="back",color="steelblue1",style="solid"];
+  Node4 [label="iniparser_dumpsection_ini",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#a790111c03777a5377712b5ea78431637",tooltip="Save a dictionary section to a loadable ini file"];
+  Node4 -> Node5 [dir="back",color="steelblue1",style="solid"];
+  Node5 [label="iniparser_dump_ini",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#af3d206ad34f6b9eefe394896d68d140c",tooltip="Save a dictionary to a loadable ini file"];
+  Node3 -> Node6 [dir="back",color="steelblue1",style="solid"];
+  Node6 [label="iniparser_getseckeys",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#ae8b877f872727f9129976b8f2de38e48",tooltip="Get the number of keys in a section of a dictionary."];
+  Node3 -> Node7 [dir="back",color="steelblue1",style="solid"];
+  Node7 [label="iniparser_getsecnkeys",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#a3e50b16a71a4fbd2183bec0424699932",tooltip="Get the number of keys in a section of a dictionary."];
+  Node2 -> Node8 [dir="back",color="steelblue1",style="solid"];
+  Node8 [label="iniparser_getboolean",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#afa30800883e2853074c038467f5fde2b",tooltip="Get the string associated to a key, convert to a boolean"];
+  Node2 -> Node9 [dir="back",color="steelblue1",style="solid"];
+  Node9 [label="iniparser_getdouble",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#a18d3a09e99a0ac212010edc3f0365379",tooltip="Get the string associated to a key, convert to a double"];
+  Node2 -> Node10 [dir="back",color="steelblue1",style="solid"];
+  Node10 [label="iniparser_getlongint",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#ada8cb75b68d3d7d175ac0bce75ca7fb5",tooltip="Get the string associated to a key, convert to an long int"];
+  Node10 -> Node11 [dir="back",color="steelblue1",style="solid"];
+  Node11 [label="iniparser_getint",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$iniparser_8c.html#a97f70bc64c6e32b8f4df50f884400fd8",tooltip="Get the string associated to a key, convert to an int"];
+  Node11 -> Node12 [dir="back",color="steelblue1",style="solid"];
+  Node12 [label="main",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$test_8c.html#a3c04138a5bfe5d72780bb7e82a18e627",tooltip="主函数"];
+  Node2 -> Node12 [dir="back",color="steelblue1",style="solid"];
+}

@@ -1,0 +1,11 @@
+digraph "my_log_threadf"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [label="my_log_threadf",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="my_log_simplyf",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$mylog_8c.html#acc21ff87369e6e096bbfc3cad86fa6be",tooltip="先把数据写入链表，等待cpu空闲"];
+}

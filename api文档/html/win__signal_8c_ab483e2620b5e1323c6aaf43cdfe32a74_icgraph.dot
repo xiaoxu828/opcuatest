@@ -1,0 +1,11 @@
+digraph "thread_read_plc"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  rankdir="RL";
+  Node1 [label="thread_read_plc",height=0.2,width=0.4,color="gray40", fillcolor="grey60", style="filled", fontcolor="black",tooltip="定时300ms读取plc的数据"];
+  Node1 -> Node2 [dir="back",color="steelblue1",style="solid"];
+  Node2 [label="my_connect_plc",height=0.2,width=0.4,color="grey40", fillcolor="white", style="filled",URL="$win__signal_8c.html#abc2612e8604a3e70913713e7a5521fe3",tooltip="连接plc"];
+}
