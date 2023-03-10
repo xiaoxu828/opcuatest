@@ -68,7 +68,8 @@
         "ratio": "c",
         "log.h": "c",
         "client_config_default.h": "c",
-        "nodeids.h": "c"
+        "nodeids.h": "c",
+        "securitypolicy.h": "c"
     },
     "cSpell.words": [
         "CJSON",

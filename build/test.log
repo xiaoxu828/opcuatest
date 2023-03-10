@@ -1,0 +1,8 @@
+[2023-03-10 17:11:02.946 (UTC+0800)] warn/userland	AcceptAll Certificate Verification. Any remote certificate will be accepted.
+[2023-03-10 17:11:02.947 (UTC+0800)] info/channel	Connection 436 | SecureChannel 2409206326 | SecureChannel opened with SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None and a revised lifetime of 600.00s
+[2023-03-10 17:11:02.947 (UTC+0800)] info/client	Client Status: ChannelState: Open, SessionState: Closed, ConnectStatus: Good
+[2023-03-10 17:11:02.948 (UTC+0800)] info/client	Rejecting UserTokenPolicy 0 in endpoint 0: security policy 'http://opcfoundation.org/UA/SecurityPolicy#Basic128Rsa15' not available
+[2023-03-10 17:11:02.948 (UTC+0800)] info/client	Selected endpoint 0 in URL opc.tcp://192.168.3.20:49320 with SecurityMode None and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2023-03-10 17:11:02.948 (UTC+0800)] info/client	Selected UserTokenPolicy Anonymous with UserTokenType Anonymous and SecurityPolicy http://opcfoundation.org/UA/SecurityPolicy#None
+[2023-03-10 17:11:02.948 (UTC+0800)] info/client	Client Status: ChannelState: Open, SessionState: Created, ConnectStatus: Good
+[2023-03-10 17:11:02.948 (UTC+0800)] info/client	Client Status: ChannelState: Open, SessionState: Activated, ConnectStatus: Good
